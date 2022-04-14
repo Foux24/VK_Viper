@@ -11,8 +11,17 @@ import UIKit
 final class OAuthVKBuilder {
     
     /// Билд контроллера
-    static func build() -> UIViewController {
+    /// - Parameter welcomeScreenViewController: Контроллер экрана приветствия
+    static func build(welcomeScreenViewController controller: UIViewController) -> UIViewController {
+        let service = OAuthVKService()
+        let router = OAuthVKRouter()
+        let interactor = OAuthVKInteractor(service: service)
+        let presentor = OAuthVKPresentor(router: router, interactor: interactor)
         let viewController = OAuthVKViewController()
+        router.viewController = viewController
+        router.welcomeScreenViewController = controller
+        presentor.welcomeScreenViewController = controller as? WelcomeScreenViewInput
+        viewController.output = presentor
         return viewController
     }
 }

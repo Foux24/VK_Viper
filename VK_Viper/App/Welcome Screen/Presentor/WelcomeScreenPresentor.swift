@@ -25,7 +25,7 @@ final class WelcomeScreenPresentor {
 extension WelcomeScreenPresentor: WelcomeScreenViewOutput {
     
     /// Переход на экран авторизации в VK
-    func showOAuthVKScreen() {
-        router.showOAuthVKScreen()
+    func showOAuthVKScreen(welcomeScreenViewController controller: UIViewController) {
+        router.showOAuthVKScreen(welcomeScreenViewController: controller)
     }
 }

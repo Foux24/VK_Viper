@@ -11,7 +11,7 @@ import UIKit
 protocol WelcomeScreenRouterInput: AnyObject {
     
     /// Переход на экран авторизации в VK
-    func showOAuthVKScreen() -> Void
+    func showOAuthVKScreen(welcomeScreenViewController controller: UIViewController) -> Void
 }
 
 /// Router для Welcome Screen ViewController
@@ -25,8 +25,8 @@ final class WelcomeScreenRouter {
 extension WelcomeScreenRouter: WelcomeScreenRouterInput {
     
     /// Переход на экран авторизации
-    func showOAuthVKScreen() -> Void {
-        let vc = OAuthVKBuilder.build()
+    func showOAuthVKScreen(welcomeScreenViewController controller: UIViewController) -> Void {
+        let vc = OAuthVKBuilder.build(welcomeScreenViewController: controller)
         self.welcomeScreenViewController?.navigationController?.showDetailViewController(vc, sender: self)
     }
 }

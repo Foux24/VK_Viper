@@ -7,6 +7,16 @@
 
 import UIKit
 
+/// Входящий протокол WelcomeScreenViewController
+protocol WelcomeScreenViewInput: AnyObject {
+
+    /// Показать алерт
+    ///  - Parameters:
+    ///  - title: Заголовок,
+    ///  - message: Сообщение
+    func showAlert(title: String, message: String) -> Void
+}
+
 // MARK: - ViewController Welcome Screen
 final class WelcomeScreenViewController: UIViewController {
     
@@ -34,13 +44,30 @@ final class WelcomeScreenViewController: UIViewController {
 // MARK: - Private
 private extension WelcomeScreenViewController {
     
-    /// Добавление таргета кнопке
+    /// Добавление таргета кнопке авторизации в VK
     func setTargetOAuthVKButton() {
         self.castomView.oauthVKButton.addTarget(self, action: #selector(showOAuthVKScreen), for: .touchUpInside)
     }
     
     /// Переход на экран авторизации
     @objc func showOAuthVKScreen() {
-        output?.showOAuthVKScreen()
+        output?.showOAuthVKScreen(welcomeScreenViewController: self)
+    }
+}
+
+// MARK: - Extension WelcomeScreenViewController on the WelcomeScreenViewInput
+extension WelcomeScreenViewController: WelcomeScreenViewInput {
+    
+    /// Показ алерта
+    ///  - Parameters:
+    ///  - title: Заголовок,
+    ///  - message: Сообщение
+    func showAlert(title: String, message: String) -> Void {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 }
