@@ -10,6 +10,16 @@ import UIKit
 // MARK: - OAuthVK ViewController
 final class OAuthVKViewController: UIViewController {
     
+    private var castomView: OAuthVKView {
+        return self.view as! OAuthVKView
+    }
+    
+    /// Life Cycle Load View
+    override func loadView() {
+        super.loadView()
+        self.view = OAuthVKView()
+    }
+    
     /// Life Cycle - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
