@@ -17,6 +17,8 @@
 		59D8F223280850D7007A5A61 /* VK_ViperUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F222280850D7007A5A61 /* VK_ViperUITestsLaunchTests.swift */; };
 		59D8F23828085243007A5A61 /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F23728085243007A5A61 /* WelcomeScreenViewController.swift */; };
 		59D8F23A28085293007A5A61 /* WelcomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F23928085293007A5A61 /* WelcomeScreenBuilder.swift */; };
+		59D8F23D280854A6007A5A61 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F23C280854A6007A5A61 /* WelcomeScreenView.swift */; };
+		59D8F23F28085A83007A5A61 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F23E28085A83007A5A61 /* Extension+UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		59D8F222280850D7007A5A61 /* VK_ViperUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VK_ViperUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		59D8F23728085243007A5A61 /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
 		59D8F23928085293007A5A61 /* WelcomeScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenBuilder.swift; sourceTree = "<group>"; };
+		59D8F23C280854A6007A5A61 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
+		59D8F23E28085A83007A5A61 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 		59D8F2312808519D007A5A61 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				59D8F23E28085A83007A5A61 /* Extension+UIColor.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -172,26 +177,35 @@
 		59D8F23428085209007A5A61 /* Welcome Screen */ = {
 			isa = PBXGroup;
 			children = (
-				59D8F2362808522A007A5A61 /* Welcome Screen ViewController */,
-				59D8F2352808521D007A5A61 /* Welcome Screen Builder */,
+				59D8F2362808522A007A5A61 /* ViewController */,
+				59D8F2352808521D007A5A61 /* Builder */,
 			);
 			path = "Welcome Screen";
 			sourceTree = "<group>";
 		};
-		59D8F2352808521D007A5A61 /* Welcome Screen Builder */ = {
+		59D8F2352808521D007A5A61 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
 				59D8F23928085293007A5A61 /* WelcomeScreenBuilder.swift */,
 			);
-			path = "Welcome Screen Builder";
+			path = Builder;
 			sourceTree = "<group>";
 		};
-		59D8F2362808522A007A5A61 /* Welcome Screen ViewController */ = {
+		59D8F2362808522A007A5A61 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				59D8F23B280853C2007A5A61 /* View */,
 				59D8F23728085243007A5A61 /* WelcomeScreenViewController.swift */,
 			);
-			path = "Welcome Screen ViewController";
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		59D8F23B280853C2007A5A61 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				59D8F23C280854A6007A5A61 /* WelcomeScreenView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,7 +340,9 @@
 			files = (
 				59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */,
 				59D8F23828085243007A5A61 /* WelcomeScreenViewController.swift in Sources */,
+				59D8F23F28085A83007A5A61 /* Extension+UIColor.swift in Sources */,
 				59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */,
+				59D8F23D280854A6007A5A61 /* WelcomeScreenView.swift in Sources */,
 				59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */,
 				59D8F23A28085293007A5A61 /* WelcomeScreenBuilder.swift in Sources */,
 			);
