@@ -10,6 +10,9 @@ import UIKit
 // MARK: - ViewController Welcome Screen
 final class WelcomeScreenViewController: UIViewController {
     
+    /// Обработчик исходящих событий
+    var output: WelcomeScreenViewOutput?
+    
     /// UIView - View для Welcome Screen ViewController
     private var castomView: WelcomeScreenView {
         return self.view as! WelcomeScreenView
@@ -24,5 +27,20 @@ final class WelcomeScreenViewController: UIViewController {
     /// Life Cycle - view did load
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTargetOAuthButton()
+    }
+}
+
+// MARK: - Private
+private extension WelcomeScreenViewController {
+    
+    /// Добавление таргета кнопке
+    func setTargetOAuthButton() {
+        self.castomView.oauthVKButton.addTarget(self, action: #selector(showOAuthScreen), for: .touchUpInside)
+    }
+    
+    /// Переход на экран авторизации
+    @objc func showOAuthScreen() {
+        output?.showOAuthScreen()
     }
 }
