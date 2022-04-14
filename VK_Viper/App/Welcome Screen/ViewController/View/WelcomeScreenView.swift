@@ -40,7 +40,7 @@ final class WelcomeScreenView: UIView {
     /// UIButton  - Кнопка для авторизация в VK
     private(set) lazy var oauthVKButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Вход через VK", for: .normal)
+        button.setTitle("Авторизация", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = .black
         button.layer.cornerRadius = 8

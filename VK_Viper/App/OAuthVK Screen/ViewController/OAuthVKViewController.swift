@@ -63,8 +63,9 @@ extension OAuthVKViewController: WKNavigationDelegate {
             }
         
         if let token = params["access_token"], let userId = params["user_id"] {
-//            let session = DataSession(token: token, userId: Int(userId) ?? 0)
-//            Session.instance.addSession(session)
+            let dataSession = DataSession(token: token, userId: Int(userId) ?? 0)
+            Session.instance.saveDataSession(dataSession)
+            print(dataSession)
             output?.dismissScreen()
         }
         decisionHandler(.cancel)

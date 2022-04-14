@@ -10,6 +10,6 @@ import UIKit
 /// Расширение UIColor
 extension UIColor {
     
-    /// Полупрозрачный черный цвет для фона контейнера в Welcome Screen View
+    /// Черный цвет с прозрачностью 0.6
     static let blackAlpha06 = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.6)
 }
