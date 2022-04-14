@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		593926A828086A1D00009005 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593926A728086A1D00009005 /* OAuthViewController.swift */; };
+		593926AB28086A6800009005 /* OAuthBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593926AA28086A6800009005 /* OAuthBuilder.swift */; };
 		59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FC280850D5007A5A61 /* AppDelegate.swift */; };
 		59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */; };
 		59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F205280850D5007A5A61 /* VK_Viper.xcdatamodeld */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		593926A728086A1D00009005 /* OAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
+		593926AA28086A6800009005 /* OAuthBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthBuilder.swift; sourceTree = "<group>"; };
 		59D8F1F9280850D5007A5A61 /* VK_Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_Viper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D8F1FC280850D5007A5A61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		593926A928086A5900009005 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				593926AA28086A6800009005 /* OAuthBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		59D8F1F0280850D5007A5A61 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +151,7 @@
 		59D8F22F28085124007A5A61 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				59D8F248280869CE007A5A61 /* OAuth Screen */,
 				59D8F23428085209007A5A61 /* Welcome Screen */,
 				59D8F2302808512A007A5A61 /* App and Scene Delegate */,
 			);
@@ -231,6 +244,23 @@
 				59D8F244280862F7007A5A61 /* WelcomeScreenPresentor.swift */,
 			);
 			path = Presentor;
+			sourceTree = "<group>";
+		};
+		59D8F248280869CE007A5A61 /* OAuth Screen */ = {
+			isa = PBXGroup;
+			children = (
+				593926A928086A5900009005 /* Builder */,
+				59D8F249280869E0007A5A61 /* ViewController */,
+			);
+			path = "OAuth Screen";
+			sourceTree = "<group>";
+		};
+		59D8F249280869E0007A5A61 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				593926A728086A1D00009005 /* OAuthViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,10 +398,12 @@
 				59D8F242280860F0007A5A61 /* WelcomeScreenRouter.swift in Sources */,
 				59D8F23828085243007A5A61 /* WelcomeScreenViewController.swift in Sources */,
 				59D8F23F28085A83007A5A61 /* Extension+UIColor.swift in Sources */,
+				593926AB28086A6800009005 /* OAuthBuilder.swift in Sources */,
 				59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */,
 				59D8F23D280854A6007A5A61 /* WelcomeScreenView.swift in Sources */,
 				59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */,
 				59D8F245280862F7007A5A61 /* WelcomeScreenPresentor.swift in Sources */,
+				593926A828086A1D00009005 /* OAuthViewController.swift in Sources */,
 				59D8F23A28085293007A5A61 /* WelcomeScreenBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,6 +26,7 @@ extension WelcomeScreenRouter: WelcomeScreenRouterInput {
     
     /// Переход на экран авторизации
     func showOAuthScreen() -> Void {
-        print("Переход на экран авторизации")
+        let vc = OAuthBuilder.build()
+        self.welcomeScreenViewController?.navigationController?.showDetailViewController(vc, sender: self)
     }
 }
