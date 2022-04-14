@@ -9,5 +9,5 @@
 protocol WelcomeScreenViewOutput: AnyObject {
     
     /// Переход на экран авторизации в VK
-    func showOAuthScreen() -> Void
+    func showOAuthVKScreen() -> Void
 }

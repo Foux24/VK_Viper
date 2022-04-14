@@ -27,7 +27,7 @@ final class WelcomeScreenViewController: UIViewController {
     /// Life Cycle - view did load
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTargetOAuthButton()
+        setTargetOAuthVKButton()
     }
 }
 
@@ -35,12 +35,12 @@ final class WelcomeScreenViewController: UIViewController {
 private extension WelcomeScreenViewController {
     
     /// Добавление таргета кнопке
-    func setTargetOAuthButton() {
-        self.castomView.oauthVKButton.addTarget(self, action: #selector(showOAuthScreen), for: .touchUpInside)
+    func setTargetOAuthVKButton() {
+        self.castomView.oauthVKButton.addTarget(self, action: #selector(showOAuthVKScreen), for: .touchUpInside)
     }
     
     /// Переход на экран авторизации
-    @objc func showOAuthScreen() {
-        output?.showOAuthScreen()
+    @objc func showOAuthVKScreen() {
+        output?.showOAuthVKScreen()
     }
 }

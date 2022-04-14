@@ -1,5 +1,5 @@
 //
-//  OAuthViewController.swift
+//  OAuthVKViewController.swift
 //  VK_Viper
 //
 //  Created by Vitalii Sukhoroslov on 14.04.2022.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-// MARK: - OAuth ViewController
-final class OAuthViewController: UIViewController {
+// MARK: - OAuthVK ViewController
+final class OAuthVKViewController: UIViewController {
     
     /// Life Cycle - View Did Load
     override func viewDidLoad() {
