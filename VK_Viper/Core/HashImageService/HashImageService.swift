@@ -1,5 +1,5 @@
 //
-//  HashPhotoService.swift
+//  HashImageService.swift
 //  VK_Viper
 //
 //  Created by Vitalii Sukhoroslov on 15.04.2022.
@@ -20,8 +20,8 @@ fileprivate protocol DataReloadable {
     func reloadRow(atIndexPath indexPath: IndexPath)
 }
 
-// MARK: - HashPhotoService
-final class HashPhotoService {
+// MARK: - HashImageService
+final class HashImageService {
     
     /// Тайм интервал в течении которого кеш актуален
     private let cacheLifeTime: TimeInterval = 30 * 24 * 60 * 60
@@ -73,7 +73,7 @@ final class HashPhotoService {
 }
 
 // MARK: - Private
-private extension HashPhotoService {
+private extension HashImageService {
     
     /// Table
     class Table: DataReloadable {
@@ -136,7 +136,7 @@ private extension HashPhotoService {
     func getFilePath(url: String) -> String? {
         guard let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else {return nil}
         let hashName = url.split(separator: "/").last ?? "default"
-        return cachesDirectory.appendingPathComponent(HashPhotoService.pathName + "/" + hashName).path
+        return cachesDirectory.appendingPathComponent(HashImageService.pathName + "/" + hashName).path
     }
     
     /// Загрузка изображения

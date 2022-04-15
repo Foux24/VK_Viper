@@ -46,8 +46,6 @@ final class GeneralTabBarController: UITabBarController {
         navController.tabBarItem.image = image
         rootViewController.navigationItem.title = title
         rootViewController.navigationItem.backButtonTitle = ""
-        rootViewController.view.safeAreaLayoutGuide.owningView?.backgroundColor = .white
-        navController.navigationBar.backgroundColor = .white
         return navController
     }
 }
