@@ -12,4 +12,7 @@ protocol WelcomeScreenViewOutput: AnyObject {
     
     /// Переход на экран авторизации в VK
     func showOAuthVKScreen(welcomeScreenViewController controller: UIViewController) -> Void
+    
+    /// Проверка валидности токена
+    func verificationToken() -> Void
 }

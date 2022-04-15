@@ -21,8 +21,8 @@ final class OAuthVKPresentor {
     
     /// Инициализтор
     /// - Parameters:
-    /// - router: Роутер
-    /// - interactor: Интерактор
+    ///  - router: Роутер
+    ///  - interactor: Интерактор
     init(router: OAuthVKRouterInput, interactor: OAuthVKInteractorInput) {
         self.router = router
         self.interactor = interactor

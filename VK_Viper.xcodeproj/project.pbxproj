@@ -18,6 +18,13 @@
 		593926C228089D5800009005 /* ModelDataSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593926C128089D5800009005 /* ModelDataSession.swift */; };
 		593926C428089E3500009005 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593926C328089E3500009005 /* Session.swift */; };
 		593926C628089E5900009005 /* SessionCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593926C528089E5900009005 /* SessionCaretaker.swift */; };
+		59621BDF280951250043A8EA /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 59621BDE280951250043A8EA /* PromiseKit */; };
+		59621BE12809516A0043A8EA /* URLConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BE02809516A0043A8EA /* URLConfigurator.swift */; };
+		59621BE32809528D0043A8EA /* WelcomeScreenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BE22809528D0043A8EA /* WelcomeScreenService.swift */; };
+		59621BE6280955700043A8EA /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BE5280955700043A8EA /* Errors.swift */; };
+		59621BE82809572D0043A8EA /* JSONModelTokenValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BE72809572D0043A8EA /* JSONModelTokenValid.swift */; };
+		59621BEA2809589C0043A8EA /* ServiceTokenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BE92809589C0043A8EA /* ServiceTokenApp.swift */; };
+		59621BED28095E1C0043A8EA /* WelcomeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BEC28095E1C0043A8EA /* WelcomeScreenInteractor.swift */; };
 		59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FC280850D5007A5A61 /* AppDelegate.swift */; };
 		59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */; };
 		59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F205280850D5007A5A61 /* VK_Viper.xcdatamodeld */; };
@@ -64,6 +71,12 @@
 		593926C128089D5800009005 /* ModelDataSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDataSession.swift; sourceTree = "<group>"; };
 		593926C328089E3500009005 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		593926C528089E5900009005 /* SessionCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionCaretaker.swift; sourceTree = "<group>"; };
+		59621BE02809516A0043A8EA /* URLConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConfigurator.swift; sourceTree = "<group>"; };
+		59621BE22809528D0043A8EA /* WelcomeScreenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenService.swift; sourceTree = "<group>"; };
+		59621BE5280955700043A8EA /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		59621BE72809572D0043A8EA /* JSONModelTokenValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModelTokenValid.swift; sourceTree = "<group>"; };
+		59621BE92809589C0043A8EA /* ServiceTokenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTokenApp.swift; sourceTree = "<group>"; };
+		59621BEC28095E1C0043A8EA /* WelcomeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenInteractor.swift; sourceTree = "<group>"; };
 		59D8F1F9280850D5007A5A61 /* VK_Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_Viper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D8F1FC280850D5007A5A61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59621BDF280951250043A8EA /* PromiseKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +198,40 @@
 			path = Session;
 			sourceTree = "<group>";
 		};
+		593926C72808A26300009005 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				59621BE22809528D0043A8EA /* WelcomeScreenService.swift */,
+				59621BE72809572D0043A8EA /* JSONModelTokenValid.swift */,
+				59621BE92809589C0043A8EA /* ServiceTokenApp.swift */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		59621BDC280950D40043A8EA /* URLConfigurator */ = {
+			isa = PBXGroup;
+			children = (
+				59621BE02809516A0043A8EA /* URLConfigurator.swift */,
+			);
+			path = URLConfigurator;
+			sourceTree = "<group>";
+		};
+		59621BE4280955550043A8EA /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				59621BE5280955700043A8EA /* Errors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		59621BEB28095DFE0043A8EA /* Use Case Layer */ = {
+			isa = PBXGroup;
+			children = (
+				59621BEC28095E1C0043A8EA /* WelcomeScreenInteractor.swift */,
+			);
+			path = "Use Case Layer";
+			sourceTree = "<group>";
+		};
 		59D8F1F0280850D5007A5A61 = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +302,8 @@
 		59D8F2312808519D007A5A61 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				59621BE4280955550043A8EA /* Errors */,
+				59621BDC280950D40043A8EA /* URLConfigurator */,
 				593926BF28089CFC00009005 /* UserDefaults */,
 				593926BE28089CEA00009005 /* Extension */,
 			);
@@ -281,6 +331,7 @@
 		59D8F23428085209007A5A61 /* Welcome Screen */ = {
 			isa = PBXGroup;
 			children = (
+				59621BEB28095DFE0043A8EA /* Use Case Layer */,
 				59D8F243280862DE007A5A61 /* Presentor */,
 				59D8F240280860DB007A5A61 /* Router */,
 				59D8F2362808522A007A5A61 /* ViewController */,
@@ -300,6 +351,7 @@
 		59D8F2362808522A007A5A61 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				593926C72808A26300009005 /* ServiceLayer */,
 				59D8F23B280853C2007A5A61 /* View */,
 				59D8F23728085243007A5A61 /* WelcomeScreenViewController.swift */,
 				59D8F246280864AD007A5A61 /* WelcomeScreenViewOutput.swift */,
@@ -370,6 +422,9 @@
 			dependencies = (
 			);
 			name = VK_Viper;
+			packageProductDependencies = (
+				59621BDE280951250043A8EA /* PromiseKit */,
+			);
 			productName = VK_Viper;
 			productReference = 59D8F1F9280850D5007A5A61 /* VK_Viper.app */;
 			productType = "com.apple.product-type.application";
@@ -442,6 +497,9 @@
 				Base,
 			);
 			mainGroup = 59D8F1F0280850D5007A5A61;
+			packageReferences = (
+				59621BDD280951250043A8EA /* XCRemoteSwiftPackageReference "PromiseKit" */,
+			);
 			productRefGroup = 59D8F1FA280850D5007A5A61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -484,9 +542,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59621BE12809516A0043A8EA /* URLConfigurator.swift in Sources */,
 				593926C428089E3500009005 /* Session.swift in Sources */,
 				59D8F247280864AD007A5A61 /* WelcomeScreenViewOutput.swift in Sources */,
+				59621BEA2809589C0043A8EA /* ServiceTokenApp.swift in Sources */,
 				593926B62808841300009005 /* OAuthVKRouter.swift in Sources */,
+				59621BE6280955700043A8EA /* Errors.swift in Sources */,
 				59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */,
 				59D8F242280860F0007A5A61 /* WelcomeScreenRouter.swift in Sources */,
 				593926B3280883E300009005 /* OAuthVKViewOutput.swift in Sources */,
@@ -497,10 +558,13 @@
 				59D8F23F28085A83007A5A61 /* Extension+UIColor.swift in Sources */,
 				593926AB28086A6800009005 /* OAuthVKBuilder.swift in Sources */,
 				59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */,
+				59621BE32809528D0043A8EA /* WelcomeScreenService.swift in Sources */,
 				59D8F23D280854A6007A5A61 /* WelcomeScreenView.swift in Sources */,
 				593926C228089D5800009005 /* ModelDataSession.swift in Sources */,
 				593926BC2808865400009005 /* OAuthVKService.swift in Sources */,
 				59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */,
+				59621BED28095E1C0043A8EA /* WelcomeScreenInteractor.swift in Sources */,
+				59621BE82809572D0043A8EA /* JSONModelTokenValid.swift in Sources */,
 				59D8F245280862F7007A5A61 /* WelcomeScreenPresentor.swift in Sources */,
 				593926A828086A1D00009005 /* OAuthVKViewController.swift in Sources */,
 				59D8F23A28085293007A5A61 /* WelcomeScreenBuilder.swift in Sources */,
@@ -836,6 +900,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		59621BDD280951250043A8EA /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit.git";
+			requirement = {
+				branch = v6;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		59621BDE280951250043A8EA /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 59621BDD280951250043A8EA /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		59D8F205280850D5007A5A61 /* VK_Viper.xcdatamodeld */ = {

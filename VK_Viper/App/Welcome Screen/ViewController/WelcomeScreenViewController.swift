@@ -12,13 +12,23 @@ protocol WelcomeScreenViewInput: AnyObject {
 
     /// Показать алерт
     ///  - Parameters:
-    ///  - title: Заголовок,
-    ///  - message: Сообщение
+    ///   - title: Заголовок,
+    ///   - message: Сообщение
     func showAlert(title: String, message: String) -> Void
+    
+    /// результат проверки токена
+    var resultVerificationToken: Bool { get set }
 }
 
 // MARK: - ViewController Welcome Screen
 final class WelcomeScreenViewController: UIViewController {
+    
+    /// результат проверки токена
+    var resultVerificationToken = Bool() {
+        didSet {
+            print(resultVerificationToken)
+        }
+    }
     
     /// Обработчик исходящих событий
     var output: WelcomeScreenViewOutput?
@@ -38,6 +48,7 @@ final class WelcomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTargetOAuthVKButton()
+        output?.verificationToken()
     }
 }
 
@@ -59,9 +70,6 @@ private extension WelcomeScreenViewController {
 extension WelcomeScreenViewController: WelcomeScreenViewInput {
     
     /// Показ алерта
-    ///  - Parameters:
-    ///  - title: Заголовок,
-    ///  - message: Сообщение
     func showAlert(title: String, message: String) -> Void {
         let alert = UIAlertController(title: title,
                                       message: message,
