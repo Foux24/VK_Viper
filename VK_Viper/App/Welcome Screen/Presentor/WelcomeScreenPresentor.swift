@@ -41,6 +41,7 @@ extension WelcomeScreenPresentor: WelcomeScreenViewOutput {
                     self.welcomeScreenView?.resultVerificationToken = true
                 } else {
                     self.welcomeScreenView?.resultVerificationToken = false
+                    self.showAlertFalseVerificationToken()
                 }
             case .failure(let error):
                 self.welcomeScreenView?.showAlert(title: "Error code \(error.errorCode)", message: error.errorMsg)
@@ -48,9 +49,14 @@ extension WelcomeScreenPresentor: WelcomeScreenViewOutput {
         }
     }
     
-    
     /// Переход на экран авторизации в VK
     func showOAuthVKScreen(welcomeScreenViewController controller: UIViewController) {
         router.showOAuthVKScreen(welcomeScreenViewController: controller)
+    }
+    
+    /// Очистка данных сессии и  вовод алерта при просроченном токене
+    func showAlertFalseVerificationToken() {
+        Session.instance.cleanSession()
+        welcomeScreenView?.showAlert(title: "Token", message: "Истек срок действия вашего токена, пожалуйста авторизайтесь снова")
     }
 }
