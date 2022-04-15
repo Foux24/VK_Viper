@@ -32,7 +32,7 @@ final class WelcomeScreenPresentor {
 /// Extension WelcomeScreenPresentor on the WelcomeScreenViewOutput
 extension WelcomeScreenPresentor: WelcomeScreenViewOutput {
     /// Проверка токена на валидность
-    func verificationToken() {
+    func verificationToken() -> Void {
         interactor.validationToken { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -41,7 +41,6 @@ extension WelcomeScreenPresentor: WelcomeScreenViewOutput {
                     self.welcomeScreenView?.resultVerificationToken = true
                 } else {
                     self.welcomeScreenView?.resultVerificationToken = false
-                    self.showAlertFalseVerificationToken()
                 }
             case .failure(let error):
                 self.welcomeScreenView?.showAlert(title: "Error code \(error.errorCode)", message: error.errorMsg)
@@ -50,13 +49,22 @@ extension WelcomeScreenPresentor: WelcomeScreenViewOutput {
     }
     
     /// Переход на экран авторизации в VK
-    func showOAuthVKScreen(welcomeScreenViewController controller: UIViewController) {
+    func showOAuthVKScreen(welcomeScreenViewController controller: UIViewController) -> Void {
         router.showOAuthVKScreen(welcomeScreenViewController: controller)
     }
     
     /// Очистка данных сессии и  вовод алерта при просроченном токене
-    func showAlertFalseVerificationToken() {
+    func showAlertFalseVerificationToken() -> Void {
         Session.instance.cleanSession()
         welcomeScreenView?.showAlert(title: "Token", message: "Истек срок действия вашего токена, пожалуйста авторизайтесь снова")
+    }
+    
+    /// Дейтсвие при проверке валидности токена
+    func actionAfterVerificationToken(verificationToken: Bool) -> Void {
+        if verificationToken == true {
+            router.showGeneralTabBarController()
+        } else {
+            self.showAlertFalseVerificationToken()
+        }
     }
 }

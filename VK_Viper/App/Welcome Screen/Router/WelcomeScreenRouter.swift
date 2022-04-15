@@ -12,6 +12,9 @@ protocol WelcomeScreenRouterInput: AnyObject {
     
     /// Переход на экран авторизации в VK
     func showOAuthVKScreen(welcomeScreenViewController controller: UIViewController) -> Void
+    
+    /// Переход на экран главный TabBatController
+    func showGeneralTabBarController() -> Void
 }
 
 /// Router для Welcome Screen ViewController
@@ -28,5 +31,10 @@ extension WelcomeScreenRouter: WelcomeScreenRouterInput {
     func showOAuthVKScreen(welcomeScreenViewController controller: UIViewController) -> Void {
         let vc = OAuthVKBuilder.build(welcomeScreenViewController: controller)
         self.welcomeScreenViewController?.navigationController?.showDetailViewController(vc, sender: self)
+    }
+    
+    /// Переход на экран главный TabBatController
+    func showGeneralTabBarController() -> Void {
+        self.welcomeScreenViewController?.navigationController?.pushViewController(GeneralTabBarController(), animated: true)
     }
 }

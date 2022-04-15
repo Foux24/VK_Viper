@@ -15,4 +15,8 @@ protocol WelcomeScreenViewOutput: AnyObject {
     
     /// Проверка валидности токена
     func verificationToken() -> Void
+    
+    /// Дейтсвие при проверке валидности токена
+    /// - Parameter verificationToken: Результат проверки токена
+    func actionAfterVerificationToken(verificationToken: Bool) -> Void
 }

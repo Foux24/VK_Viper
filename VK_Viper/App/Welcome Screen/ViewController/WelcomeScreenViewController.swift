@@ -26,7 +26,7 @@ final class WelcomeScreenViewController: UIViewController {
     /// результат проверки токена
     var resultVerificationToken = Bool() {
         didSet {
-            print(resultVerificationToken)
+            output?.actionAfterVerificationToken(verificationToken: resultVerificationToken)
         }
     }
     

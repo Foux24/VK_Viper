@@ -25,6 +25,9 @@
 		59621BE82809572D0043A8EA /* JSONModelTokenValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BE72809572D0043A8EA /* JSONModelTokenValid.swift */; };
 		59621BEA2809589C0043A8EA /* ServiceTokenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BE92809589C0043A8EA /* ServiceTokenApp.swift */; };
 		59621BED28095E1C0043A8EA /* WelcomeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BEC28095E1C0043A8EA /* WelcomeScreenInteractor.swift */; };
+		59621BF02809675C0043A8EA /* GeneralTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BEF2809675C0043A8EA /* GeneralTabBar.swift */; };
+		59621BF5280969D10043A8EA /* ListMyFriendBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BF4280969D10043A8EA /* ListMyFriendBuilder.swift */; };
+		59621BF728096A040043A8EA /* ListMyFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621BF628096A040043A8EA /* ListMyFriendViewController.swift */; };
 		59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FC280850D5007A5A61 /* AppDelegate.swift */; };
 		59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */; };
 		59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F205280850D5007A5A61 /* VK_Viper.xcdatamodeld */; };
@@ -77,6 +80,9 @@
 		59621BE72809572D0043A8EA /* JSONModelTokenValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModelTokenValid.swift; sourceTree = "<group>"; };
 		59621BE92809589C0043A8EA /* ServiceTokenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTokenApp.swift; sourceTree = "<group>"; };
 		59621BEC28095E1C0043A8EA /* WelcomeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenInteractor.swift; sourceTree = "<group>"; };
+		59621BEF2809675C0043A8EA /* GeneralTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTabBar.swift; sourceTree = "<group>"; };
+		59621BF4280969D10043A8EA /* ListMyFriendBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendBuilder.swift; sourceTree = "<group>"; };
+		59621BF628096A040043A8EA /* ListMyFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendViewController.swift; sourceTree = "<group>"; };
 		59D8F1F9280850D5007A5A61 /* VK_Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_Viper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D8F1FC280850D5007A5A61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +238,39 @@
 			path = "Use Case Layer";
 			sourceTree = "<group>";
 		};
+		59621BEE280967110043A8EA /* GeneralTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				59621BEF2809675C0043A8EA /* GeneralTabBar.swift */,
+			);
+			path = GeneralTabBar;
+			sourceTree = "<group>";
+		};
+		59621BF12809698F0043A8EA /* My Friend Screen */ = {
+			isa = PBXGroup;
+			children = (
+				59621BF3280969BC0043A8EA /* Builder */,
+				59621BF2280969A60043A8EA /* ViewController */,
+			);
+			path = "My Friend Screen";
+			sourceTree = "<group>";
+		};
+		59621BF2280969A60043A8EA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				59621BF628096A040043A8EA /* ListMyFriendViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		59621BF3280969BC0043A8EA /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				59621BF4280969D10043A8EA /* ListMyFriendBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		59D8F1F0280850D5007A5A61 = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +322,8 @@
 		59D8F22F28085124007A5A61 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				59621BF12809698F0043A8EA /* My Friend Screen */,
+				59621BEE280967110043A8EA /* GeneralTabBar */,
 				59D8F248280869CE007A5A61 /* OAuthVK Screen */,
 				59D8F23428085209007A5A61 /* Welcome Screen */,
 				59D8F2302808512A007A5A61 /* App and Scene Delegate */,
@@ -552,8 +593,10 @@
 				59D8F242280860F0007A5A61 /* WelcomeScreenRouter.swift in Sources */,
 				593926B3280883E300009005 /* OAuthVKViewOutput.swift in Sources */,
 				593926B9280885EE00009005 /* OAuthVKInteractor.swift in Sources */,
+				59621BF5280969D10043A8EA /* ListMyFriendBuilder.swift in Sources */,
 				593926C628089E5900009005 /* SessionCaretaker.swift in Sources */,
 				593926AE28086CF800009005 /* OAuthVKView.swift in Sources */,
+				59621BF02809675C0043A8EA /* GeneralTabBar.swift in Sources */,
 				59D8F23828085243007A5A61 /* WelcomeScreenViewController.swift in Sources */,
 				59D8F23F28085A83007A5A61 /* Extension+UIColor.swift in Sources */,
 				593926AB28086A6800009005 /* OAuthVKBuilder.swift in Sources */,
@@ -566,6 +609,7 @@
 				59621BED28095E1C0043A8EA /* WelcomeScreenInteractor.swift in Sources */,
 				59621BE82809572D0043A8EA /* JSONModelTokenValid.swift in Sources */,
 				59D8F245280862F7007A5A61 /* WelcomeScreenPresentor.swift in Sources */,
+				59621BF728096A040043A8EA /* ListMyFriendViewController.swift in Sources */,
 				593926A828086A1D00009005 /* OAuthVKViewController.swift in Sources */,
 				59D8F23A28085293007A5A61 /* WelcomeScreenBuilder.swift in Sources */,
 				593926B1280883B400009005 /* OAuthVKPresentor.swift in Sources */,

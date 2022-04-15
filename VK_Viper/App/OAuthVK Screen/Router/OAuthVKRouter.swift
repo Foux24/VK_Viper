@@ -30,6 +30,8 @@ extension OAuthVKRouter: OAuthVKRouterInput {
     
     /// Переход на TabBarController
     func dismissScreen() {
-        viewController?.dismiss(animated: true, completion: {})
+        viewController?.dismiss(animated: true, completion: {
+            self.welcomeScreenViewController?.navigationController?.pushViewController(GeneralTabBarController(), animated: true)
+        })
     }
 }
