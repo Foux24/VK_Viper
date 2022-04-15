@@ -1,5 +1,5 @@
 //
-//  WelcomeScreenService.swift
+//  ListMyFriendService.swift
 //  VK_Viper
 //
 //  Created by Vitalii Sukhoroslov on 15.04.2022.
@@ -9,22 +9,21 @@ import Foundation
 import PromiseKit
 
 /// Входящий протокол сервиса
-protocol WelcomeScreenServiceInput: AnyObject {
+protocol ListMyFriendServiceInput: AnyObject {
     
     /// Составляем URL
-    func validationTokenPromisURL() -> Promise<URL>
+    func listMyFriendsPromisURL() -> Promise<URL>
     
     /// Делаем запрос
     /// - Parameter url: URL для запроса
-    func validationTokenPromisData(_ url: URL) -> Promise<Data>
+    func listMyFriendsPromisData(_ url: URL) -> Promise<Data>
     
-    /// Парсим Data по структуре TokenValid
+    /// Парсим Data по структуре ListMyFriend
     /// - Parameter data: Data полученная от запроса на сервер
-    func validationTokenPromiseParsed(_ data: Data) -> Promise<TokenValid>
+    func listMyFriendsPromiseParsed(_ data: Data) -> Promise<ListMyFriend>
 }
 
-/// Сервис для WelcomeScreen
-final class WelcomeScreenService {
+final class ListMyFriendService {
     
     /// Первоначальный Конфигуратор URL
     private let urlConfigurator: URLConfiguratorOutput
@@ -39,16 +38,15 @@ final class WelcomeScreenService {
     }
 }
 
-/// Extension WelcomeScreenService on the WelcomeScreenServiceInput
-extension WelcomeScreenService: WelcomeScreenServiceInput {
+/// extension ListMyFriendService on the ListMyFriendServiceInput
+extension ListMyFriendService: ListMyFriendServiceInput {
     
     /// Составляем URL
-    func validationTokenPromisURL() -> Promise<URL> {
-        let serviceToken = ServiceTokenApp()
+    func listMyFriendsPromisURL() -> Promise<URL> {
         let token = Session.instance.dataSession.token ?? ""
-        let params: [String: String] = ["token" : token]
-        let urlConfig = urlConfigurator.configureUrl(token: serviceToken.serviceToken,
-                                                     typeMethod: .tokenValidation,
+        let params: [String: String] = ["fields" : "photo_200_orig,status,domain,last_seen"]
+        let urlConfig = urlConfigurator.configureUrl(token: token,
+                                                     typeMethod: .listFriends,
                                                      typeRequest: .get,
                                                      params: params)
         return Promise { resolver in
@@ -58,7 +56,7 @@ extension WelcomeScreenService: WelcomeScreenServiceInput {
     }
     
     /// Делаем запрос
-    func validationTokenPromisData(_ url: URL) -> Promise<Data> {
+    func listMyFriendsPromisData(_ url: URL) -> Promise<Data> {
         return Promise { resolver in
             urlConfigurator.session.dataTask(with: url) { data, response, error in
                 guard let data = data else {
@@ -70,11 +68,11 @@ extension WelcomeScreenService: WelcomeScreenServiceInput {
         }
     }
     
-    /// Парсим Data по структуре TokenValid
-    func validationTokenPromiseParsed(_ data: Data) -> Promise<TokenValid> {
+    /// Парсим Data по структуре ListMyFriend
+    func listMyFriendsPromiseParsed(_ data: Data) -> Promise<ListMyFriend> {
         return Promise { resolver in
             do {
-                let response = try decoder.decode(JSONModelTokenValid.self, from: data).response
+                let response = try decoder.decode(JSONModelListMyFriend.self, from: data).response
                 resolver.fulfill(response)
             } catch {
                 let response = try decoder.decode(Errors.self, from: data).error

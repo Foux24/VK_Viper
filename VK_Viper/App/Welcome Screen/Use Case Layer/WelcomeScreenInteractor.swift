@@ -15,8 +15,8 @@ protocol WelcomeScreenInteractorInput {
 }
 
 /// Интератор для Welcome Screen
-final class WelcomeScreenInteractor: WelcomeScreenInteractorInput {
-
+final class WelcomeScreenInteractor{
+    
     /// Сервис по загрузки данных
     private let service: WelcomeScreenServiceInput
     
@@ -25,6 +25,10 @@ final class WelcomeScreenInteractor: WelcomeScreenInteractorInput {
     init(service: WelcomeScreenServiceInput) {
         self.service = service
     }
+}
+
+/// Extension WelcomeScreenInteractor on the WelcomeScreenInteractorInput
+extension WelcomeScreenInteractor: WelcomeScreenInteractorInput {
     
     /// Проверка валдиности тококена
     func validationToken(completion: @escaping (Result<TokenValid, ErrorVK>) -> Void) {

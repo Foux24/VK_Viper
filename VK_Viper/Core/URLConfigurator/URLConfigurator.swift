@@ -25,6 +25,7 @@ protocol URLConfiguratorOutput: AnyObject {
 /// Типы методов для запроса к API
 enum TypeMethods: String {
     case tokenValidation = "/method/secure.checkToken"
+    case listFriends = "/method/friends.get"
 }
 
 /// Типы запросов

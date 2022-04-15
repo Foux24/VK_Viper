@@ -7,11 +7,21 @@
 
 import UIKit
 
+protocol ListMyFriendViewControllerInput: AnyObject {
+    
+}
+
 // MARK: - ListMyFriendViewController
 final class ListMyFriendViewController: UIViewController {
     
+    /// Обработчик исходящих событий
+    var output: ListMyFriendViewControllerOutput?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        output?.getListFriends()
     }
 }
+
+extension ListMyFriendViewController: ListMyFriendViewControllerInput {}
