@@ -39,6 +39,7 @@
 		59621C0E280990420043A8EA /* ListMyFriendViewControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621C0D280990420043A8EA /* ListMyFriendViewControllerOutput.swift */; };
 		5966C682280AA95B0012423B /* ListMyFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C681280AA95B0012423B /* ListMyFriendView.swift */; };
 		5966C685280AAB120012423B /* ListMyFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C684280AAB120012423B /* ListMyFriendTableViewCell.swift */; };
+		5966C688280AF8280012423B /* FriendSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C687280AF8280012423B /* FriendSection.swift */; };
 		59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FC280850D5007A5A61 /* AppDelegate.swift */; };
 		59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */; };
 		59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F205280850D5007A5A61 /* VK_Viper.xcdatamodeld */; };
@@ -105,6 +106,7 @@
 		59621C0D280990420043A8EA /* ListMyFriendViewControllerOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendViewControllerOutput.swift; sourceTree = "<group>"; };
 		5966C681280AA95B0012423B /* ListMyFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendView.swift; sourceTree = "<group>"; };
 		5966C684280AAB120012423B /* ListMyFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendTableViewCell.swift; sourceTree = "<group>"; };
+		5966C687280AF8280012423B /* FriendSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSection.swift; sourceTree = "<group>"; };
 		59D8F1F9280850D5007A5A61 /* VK_Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_Viper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D8F1FC280850D5007A5A61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 		59621C012809872B0043A8EA /* Presentor */ = {
 			isa = PBXGroup;
 			children = (
+				5966C686280AF8070012423B /* Models */,
 				59621C022809873E0043A8EA /* ListMyFriendPresentor.swift */,
 			);
 			path = Presentor;
@@ -349,6 +352,14 @@
 				5966C684280AAB120012423B /* ListMyFriendTableViewCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		5966C686280AF8070012423B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5966C687280AF8280012423B /* FriendSection.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		59D8F1F0280850D5007A5A61 = {
@@ -685,6 +696,7 @@
 				59621BF02809675C0043A8EA /* GeneralTabBar.swift in Sources */,
 				59D8F23828085243007A5A61 /* WelcomeScreenViewController.swift in Sources */,
 				59621C002809847E0043A8EA /* Extension+UIImageView.swift in Sources */,
+				5966C688280AF8280012423B /* FriendSection.swift in Sources */,
 				59D8F23F28085A83007A5A61 /* Extension+UIColor.swift in Sources */,
 				59621C06280987960043A8EA /* ListMyFriendInteractor.swift in Sources */,
 				593926AB28086A6800009005 /* OAuthVKBuilder.swift in Sources */,

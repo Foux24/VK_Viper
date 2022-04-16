@@ -12,7 +12,7 @@ final class ListMyFriendView: UIView {
     
     /// UITableView
     private(set) lazy var tableView: UITableView = {
-        let table = UITableView(frame: .zero, style: .plain)
+        let table = UITableView(frame: .zero, style: .grouped)
         table.rowHeight = 70
         table.translatesAutoresizingMaskIntoConstraints = false
         return table

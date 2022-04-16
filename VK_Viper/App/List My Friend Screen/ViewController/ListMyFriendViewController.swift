@@ -16,14 +16,14 @@ protocol ListMyFriendViewControllerInput: AnyObject {
     func showAlert(title: String, message: String) -> Void
     
     /// Список друзей
-    var listMyFriend: [MyFriend] { get set }
+    var listMyFriend: [FriendSection] { get set }
 }
 
 // MARK: - ListMyFriendViewController
 final class ListMyFriendViewController: UIViewController {
     
     /// Список друзей
-    var listMyFriend = [MyFriend]() {
+    var listMyFriend = [FriendSection]() {
         didSet {
             castomView.tableView.reloadData()
         }
@@ -60,18 +60,24 @@ extension ListMyFriendViewController: UITableViewDataSource {
     
     /// Количество секций в таблице
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        listMyFriend.count
     }
     
     /// Кол-во строк в секции
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        listMyFriend.count
+        listMyFriend[section].data.count
+    }
+    
+    /// Тайтл Хеадера
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let section = listMyFriend[section]
+        return String(section.key)
     }
     
     /// конфигурация ячейки
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = castomView.tableView.dequeueReusableCell(forIndexPath: indexPath) as ListMyFriendTableViewCell
-        let friend = listMyFriend[indexPath.row]
+        let friend = listMyFriend[indexPath.section].data[indexPath.row]
         let image = fileManager?.getImage(atIndexPath: indexPath, byUrl: friend.photo200_Orig)
         cell.configurationCell(image: image, nameFriend: "\(friend.firstName) \(friend.lastName)", status: friend.status)
         return cell
