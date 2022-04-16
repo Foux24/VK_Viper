@@ -16,13 +16,16 @@ struct JSONModelProfileFriend: Codable {
 struct UserInfo: Codable, Identifiable {
     let id: Int
     let firstName, lastName: String
-    let domain, bdate: String
-    let city: City
+    let domain: String
+    let bdate: String?
+    let city: City?
     let photo200_Orig: String
     let isFriend: Int
     let status: String
     let lastSeen: LastSeen
-    let followersCount, commonCount: Int
+    let followersCount: Int?
+    let commonCount: Int
+    let occupation: Occupation?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -35,6 +38,7 @@ struct UserInfo: Codable, Identifiable {
         case lastSeen = "last_seen"
         case followersCount = "followers_count"
         case commonCount = "common_count"
+        case occupation
     }
 }
 
@@ -50,4 +54,17 @@ struct LastSeen: Codable {
     enum CodingKeys: String, CodingKey {
         case time
     }
+}
+
+/// Occupation
+struct Occupation: Codable {
+    let name: String
+    let type: TypeOccupation
+}
+
+/// Тип занятости
+enum TypeOccupation: String, Codable {
+    case school = "school"
+    case university = "university"
+    case work = "work"
 }

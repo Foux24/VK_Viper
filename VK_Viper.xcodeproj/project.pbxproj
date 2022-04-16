@@ -47,6 +47,8 @@
 		5966C69A280B06890012423B /* ProfileFriendBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C699280B06890012423B /* ProfileFriendBuilder.swift */; };
 		5966C69C280B173C0012423B /* JSONModelProfileFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C69B280B173C0012423B /* JSONModelProfileFriend.swift */; };
 		5966C69F280B1A690012423B /* ProfileFriendInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C69E280B1A690012423B /* ProfileFriendInteractor.swift */; };
+		5966C6A4280B3D280012423B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5966C6A3280B3D280012423B /* Kingfisher */; };
+		5966C6A7280B5EC90012423B /* SetAvatarFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C6A6280B5EC90012423B /* SetAvatarFriend.swift */; };
 		59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FC280850D5007A5A61 /* AppDelegate.swift */; };
 		59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */; };
 		59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F205280850D5007A5A61 /* VK_Viper.xcdatamodeld */; };
@@ -121,6 +123,7 @@
 		5966C699280B06890012423B /* ProfileFriendBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendBuilder.swift; sourceTree = "<group>"; };
 		5966C69B280B173C0012423B /* JSONModelProfileFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModelProfileFriend.swift; sourceTree = "<group>"; };
 		5966C69E280B1A690012423B /* ProfileFriendInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendInteractor.swift; sourceTree = "<group>"; };
+		5966C6A6280B5EC90012423B /* SetAvatarFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvatarFriend.swift; sourceTree = "<group>"; };
 		59D8F1F9280850D5007A5A61 /* VK_Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_Viper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D8F1FC280850D5007A5A61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5966C6A4280B3D280012423B /* Kingfisher in Frameworks */,
 				59621BDF280951250043A8EA /* PromiseKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +442,14 @@
 			path = "Use Case Layer";
 			sourceTree = "<group>";
 		};
+		5966C6A5280B5E930012423B /* ViewModifireSwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				5966C6A6280B5EC90012423B /* SetAvatarFriend.swift */,
+			);
+			path = ViewModifireSwiftUI;
+			sourceTree = "<group>";
+		};
 		59D8F1F0280850D5007A5A61 = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +523,7 @@
 		59D8F2312808519D007A5A61 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5966C6A5280B5E930012423B /* ViewModifireSwiftUI */,
 				59621BFC28097EEA0043A8EA /* HashImageService */,
 				59621BE4280955550043A8EA /* Errors */,
 				59621BDC280950D40043A8EA /* URLConfigurator */,
@@ -634,6 +647,7 @@
 			name = VK_Viper;
 			packageProductDependencies = (
 				59621BDE280951250043A8EA /* PromiseKit */,
+				5966C6A3280B3D280012423B /* Kingfisher */,
 			);
 			productName = VK_Viper;
 			productReference = 59D8F1F9280850D5007A5A61 /* VK_Viper.app */;
@@ -709,6 +723,7 @@
 			mainGroup = 59D8F1F0280850D5007A5A61;
 			packageReferences = (
 				59621BDD280951250043A8EA /* XCRemoteSwiftPackageReference "PromiseKit" */,
+				5966C6A2280B3D270012423B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 59D8F1FA280850D5007A5A61 /* Products */;
 			projectDirPath = "";
@@ -799,6 +814,7 @@
 				5966C697280B05B00012423B /* ProfileFriendService.swift in Sources */,
 				593926A828086A1D00009005 /* OAuthVKViewController.swift in Sources */,
 				59621C0C2809890D0043A8EA /* JSONModelListMyFriend.swift in Sources */,
+				5966C6A7280B5EC90012423B /* SetAvatarFriend.swift in Sources */,
 				59D8F23A28085293007A5A61 /* WelcomeScreenBuilder.swift in Sources */,
 				593926B1280883B400009005 /* OAuthVKPresentor.swift in Sources */,
 			);
@@ -1142,6 +1158,14 @@
 				kind = branch;
 			};
 		};
+		5966C6A2280B3D270012423B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1149,6 +1173,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 59621BDD280951250043A8EA /* XCRemoteSwiftPackageReference "PromiseKit" */;
 			productName = PromiseKit;
+		};
+		5966C6A3280B3D280012423B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5966C6A2280B3D270012423B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -18,7 +18,16 @@ class ProfileFriendPresentor: ObservableObject {
     @Published var userInfo: UserInfo?
     
     /// Друзья Друга
-    @Published var userFriend: [Friends]?
+    @Published var userFriend: [Friends] = []
+    
+    /// Формат даты
+    private var dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateFormat = "dd.LLL HH:mm"
+        df.locale = Locale(identifier: "ru_RU")
+        df.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        return df
+    }()
     
     /// Interactor
     private let interactor: ProfileFriendInteractorInput
@@ -56,5 +65,15 @@ class ProfileFriendPresentor: ObservableObject {
                 print(error)
             }
         }
+    }
+    
+    /// Метод для конвертации даты
+    func formateDate() -> String {
+        let time = self.userInfo?.lastSeen.time ?? 0
+        var dateFormate = ""
+        let date = NSDate(timeIntervalSince1970: TimeInterval(time))
+        let dateString = self.dateFormatter.string(from: date as Date)
+        dateFormate = dateString
+        return dateFormate
     }
 }

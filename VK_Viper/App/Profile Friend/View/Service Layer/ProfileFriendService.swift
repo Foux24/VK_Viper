@@ -60,7 +60,7 @@ extension ProfileFriendService: ProfileFriendServiceInput {
     func userInfoPromisURL(idFriend: String) -> Promise<URL> {
         let token = Session.instance.dataSession.token ?? ""
         let params: [String: String] = ["user_ids": idFriend,
-                                        "fields" : "bdate,common_count,connections,city,domain,education,exports,followers_count,friend_status,photo_200_orig,status,is_friend,timezone,last_seen"]
+                                        "fields" : "bdate,common_count,connections,city,domain,education,exports,followers_count,friend_status,photo_200_orig,status,is_friend,timezone,last_seen,occupation"]
         let urlConfig = urlConfigurator.configureUrl(token: token,
                                                      typeMethod: .userInfo,
                                                      typeRequest: .get,
