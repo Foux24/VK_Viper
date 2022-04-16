@@ -16,6 +16,7 @@ final class ListMyFriendBuilder {
         let presentor = ListMyFriendPresentor(interactor: interactor)
         let viewController = ListMyFriendViewController()
         viewController.output = presentor
+        presentor.listMyFriendViewController = viewController
         return viewController
     }
 }

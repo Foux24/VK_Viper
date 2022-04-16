@@ -37,6 +37,8 @@
 		59621C0A280988B90043A8EA /* ListMyFriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621C09280988B90043A8EA /* ListMyFriendService.swift */; };
 		59621C0C2809890D0043A8EA /* JSONModelListMyFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621C0B2809890C0043A8EA /* JSONModelListMyFriend.swift */; };
 		59621C0E280990420043A8EA /* ListMyFriendViewControllerOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59621C0D280990420043A8EA /* ListMyFriendViewControllerOutput.swift */; };
+		5966C682280AA95B0012423B /* ListMyFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C681280AA95B0012423B /* ListMyFriendView.swift */; };
+		5966C685280AAB120012423B /* ListMyFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C684280AAB120012423B /* ListMyFriendTableViewCell.swift */; };
 		59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FC280850D5007A5A61 /* AppDelegate.swift */; };
 		59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */; };
 		59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F205280850D5007A5A61 /* VK_Viper.xcdatamodeld */; };
@@ -101,6 +103,8 @@
 		59621C09280988B90043A8EA /* ListMyFriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendService.swift; sourceTree = "<group>"; };
 		59621C0B2809890C0043A8EA /* JSONModelListMyFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModelListMyFriend.swift; sourceTree = "<group>"; };
 		59621C0D280990420043A8EA /* ListMyFriendViewControllerOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendViewControllerOutput.swift; sourceTree = "<group>"; };
+		5966C681280AA95B0012423B /* ListMyFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendView.swift; sourceTree = "<group>"; };
+		5966C684280AAB120012423B /* ListMyFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendTableViewCell.swift; sourceTree = "<group>"; };
 		59D8F1F9280850D5007A5A61 /* VK_Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_Viper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D8F1FC280850D5007A5A61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -324,6 +328,8 @@
 		59621C07280988480043A8EA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5966C683280AAB010012423B /* cell */,
+				5966C681280AA95B0012423B /* ListMyFriendView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,6 +341,14 @@
 				59621C0B2809890C0043A8EA /* JSONModelListMyFriend.swift */,
 			);
 			path = "Service Layer";
+			sourceTree = "<group>";
+		};
+		5966C683280AAB010012423B /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				5966C684280AAB120012423B /* ListMyFriendTableViewCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		59D8F1F0280850D5007A5A61 = {
@@ -660,6 +674,7 @@
 				59621BE6280955700043A8EA /* Errors.swift in Sources */,
 				59621C0A280988B90043A8EA /* ListMyFriendService.swift in Sources */,
 				59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */,
+				5966C685280AAB120012423B /* ListMyFriendTableViewCell.swift in Sources */,
 				59D8F242280860F0007A5A61 /* WelcomeScreenRouter.swift in Sources */,
 				593926B3280883E300009005 /* OAuthVKViewOutput.swift in Sources */,
 				593926B9280885EE00009005 /* OAuthVKInteractor.swift in Sources */,
@@ -680,6 +695,7 @@
 				59621C032809873E0043A8EA /* ListMyFriendPresentor.swift in Sources */,
 				593926C228089D5800009005 /* ModelDataSession.swift in Sources */,
 				593926BC2808865400009005 /* OAuthVKService.swift in Sources */,
+				5966C682280AA95B0012423B /* ListMyFriendView.swift in Sources */,
 				59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */,
 				59621BED28095E1C0043A8EA /* WelcomeScreenInteractor.swift in Sources */,
 				59621BE82809572D0043A8EA /* JSONModelTokenValid.swift in Sources */,

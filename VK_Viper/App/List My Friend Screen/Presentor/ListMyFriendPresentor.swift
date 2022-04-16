@@ -13,6 +13,9 @@ final class ListMyFriendPresentor {
     /// Ineractor
     private let interactor: ListMyFriendInteractorInput
     
+    /// List My Friend ViewController
+    weak var listMyFriendViewController: ListMyFriendViewControllerInput?
+    
     init(interactor: ListMyFriendInteractorInput) {
         self.interactor = interactor
     }
@@ -26,10 +29,10 @@ extension ListMyFriendPresentor: ListMyFriendViewControllerOutput {
         interactor.getListMyFriend { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let listFriends):
-                print(listFriends)
+            case .success(let myFriend):
+                self.listMyFriendViewController?.listMyFriend = myFriend
             case .failure(let error):
-                print(error)
+                self.listMyFriendViewController?.showAlert(title: "Error code\(error.errorCode)", message: error.errorMsg)
             }
         }
     }
