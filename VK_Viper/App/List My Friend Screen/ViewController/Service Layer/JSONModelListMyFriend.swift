@@ -9,24 +9,22 @@ import Foundation
 
 /// JSONModelListMyFriend
 struct JSONModelListMyFriend: Codable {
-    var response: ListMyFriend
+    var response: ListFriend
 }
 
 /// ListMyFriend
-struct ListMyFriend: Codable {
+struct ListFriend: Codable {
     var count: Int
-    var items: [MyFriend]
+    var items: [Friends]
 }
 
 /// MyFriend
-struct MyFriend: Codable {
+struct Friends: Codable {
     var firstName: String
     var id: Int
     var lastName: String
     var photo200_Orig: String
     var status: String?
-    var domain: String?
-    var lastSeen: LastSeen?
 
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
@@ -34,16 +32,7 @@ struct MyFriend: Codable {
         case lastName = "last_name"
         case photo200_Orig = "photo_200_orig"
         case status = "status"
-        case domain
-        case lastSeen = "last_seen"
     }
 }
 
-/// LastSeen
-struct LastSeen: Codable {
-    var time: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case time
-    }
-}
+

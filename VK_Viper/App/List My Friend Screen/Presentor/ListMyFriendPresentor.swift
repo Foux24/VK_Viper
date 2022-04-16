@@ -13,11 +13,15 @@ final class ListMyFriendPresentor {
     /// Ineractor
     private let interactor: ListMyFriendInteractorInput
     
+    /// Router
+    private let router: ListMyFriendRouterInput
+    
     /// List My Friend ViewController
     weak var listMyFriendViewController: ListMyFriendViewControllerInput?
     
-    init(interactor: ListMyFriendInteractorInput) {
+    init(interactor: ListMyFriendInteractorInput, router: ListMyFriendRouterInput) {
         self.interactor = interactor
+        self.router = router
     }
 }
 
@@ -36,6 +40,11 @@ extension ListMyFriendPresentor: ListMyFriendViewControllerOutput {
             }
         }
     }
+    
+    /// Переход в профиль друга
+    func showProfileFriend(dataFriend: Friends) -> Void {
+        router.showProfileFriend(dataFriend: dataFriend)
+    }
 }
 
 private extension ListMyFriendPresentor {
@@ -43,8 +52,8 @@ private extension ListMyFriendPresentor {
     /// Сортировка в Словарь
     /// - Parameter array: Массив друзей полученый с сервера
     /// На выходе словрь, ключ первая буква имени, значение массив друзей у кого первая буква ключ
-    func sortFriends(_ array: [MyFriend]) -> [Character: [MyFriend]] {
-        var newArray: [Character: [MyFriend]] = [:]
+    func sortFriends(_ array: [Friends]) -> [Character: [Friends]] {
+        var newArray: [Character: [Friends]] = [:]
         for user in array {
             guard let firstChar = user.firstName.first else { continue }
             guard var array = newArray[firstChar] else { let newValue = [user]
@@ -60,7 +69,7 @@ private extension ListMyFriendPresentor {
     /// Перезаписываем словарь
     /// - Parameter dictionary: Словарь друзей
     /// На выходе массив с типом FriendSection
-    func formFriendSection(_ dictionary: [Character: [MyFriend]]) -> [FriendSection] {
+    func formFriendSection(_ dictionary: [Character: [Friends]]) -> [FriendSection] {
         var sectionArray: [FriendSection] = []
         for (key, array) in dictionary {
             sectionArray.append(FriendSection(key: key, data: array))
@@ -72,7 +81,7 @@ private extension ListMyFriendPresentor {
     /// сортируем друзей
     /// - Parameter array: Массив друзей полученый с сервера
     /// На выходе массив с типом FriendSection
-    func formFriendArray(from array: [MyFriend]) -> [FriendSection] {
+    func formFriendArray(from array: [Friends]) -> [FriendSection] {
         let sortDictionary = sortFriends(array)
         let sortArray = formFriendSection(sortDictionary)
         return sortArray

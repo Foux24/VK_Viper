@@ -14,7 +14,7 @@ struct FriendSection: Comparable {
     var key: Character
     
     /// Значение
-    var data: [MyFriend]
+    var data: [Friends]
     
     /// Сартировка ключей словаря  <
     static func < (lhs: FriendSection, rhs: FriendSection) -> Bool {

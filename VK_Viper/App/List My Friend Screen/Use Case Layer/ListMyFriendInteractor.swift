@@ -11,7 +11,7 @@ import UIKit
 protocol ListMyFriendInteractorInput: AnyObject {
     /// Получение списка друзей
     /// - Parameter complition: Блок обработки запроса, на выходе список друзей  или ошибка
-    func getListMyFriend(completion: @escaping (Result<[MyFriend], ErrorVK>) -> Void)
+    func getListMyFriend(completion: @escaping (Result<[Friends], ErrorVK>) -> Void)
 }
 
 /// Интерактор для презентора  List My Friend ViewController
@@ -31,7 +31,7 @@ final class ListMyFriendInteractor {
 extension ListMyFriendInteractor: ListMyFriendInteractorInput {
     
     /// Получение списка друзей
-    func getListMyFriend(completion: @escaping (Result<[MyFriend], ErrorVK>) -> Void) {
+    func getListMyFriend(completion: @escaping (Result<[Friends], ErrorVK>) -> Void) {
         service.listMyFriendsPromisURL()
             .then(on: DispatchQueue.global(), service.listMyFriendsPromisData(_:))
             .then(service.listMyFriendsPromiseParsed(_:))

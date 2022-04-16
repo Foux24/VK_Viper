@@ -7,16 +7,20 @@
 
 import UIKit
 
+/// Builder для ListMyFriendViewController
 final class ListMyFriendBuilder {
     
+    /// Build контроллера
     static func build() -> UIViewController {
         let urlConfigurator = URLConfigurator()
         let service = ListMyFriendService(urlConfigurator: urlConfigurator)
         let interactor = ListMyFriendInteractor(service: service)
-        let presentor = ListMyFriendPresentor(interactor: interactor)
+        let router = ListMyFriendRouter()
+        let presentor = ListMyFriendPresentor(interactor: interactor, router: router)
         let viewController = ListMyFriendViewController()
         viewController.output = presentor
         presentor.listMyFriendViewController = viewController
+        router.listMyFriendViewController = viewController
         return viewController
     }
 }

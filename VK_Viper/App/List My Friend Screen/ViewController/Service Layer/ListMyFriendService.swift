@@ -20,9 +20,10 @@ protocol ListMyFriendServiceInput: AnyObject {
     
     /// Парсим Data по структуре ListMyFriend
     /// - Parameter data: Data полученная от запроса на сервер
-    func listMyFriendsPromiseParsed(_ data: Data) -> Promise<ListMyFriend>
+    func listMyFriendsPromiseParsed(_ data: Data) -> Promise<ListFriend>
 }
 
+/// ListMyFriendService
 final class ListMyFriendService {
     
     /// Первоначальный Конфигуратор URL
@@ -51,6 +52,7 @@ extension ListMyFriendService: ListMyFriendServiceInput {
                                                      params: params)
         return Promise { resolver in
             let url = urlConfig
+            print(url)
             resolver.fulfill(url)
         }
     }
@@ -69,7 +71,7 @@ extension ListMyFriendService: ListMyFriendServiceInput {
     }
     
     /// Парсим Data по структуре ListMyFriend
-    func listMyFriendsPromiseParsed(_ data: Data) -> Promise<ListMyFriend> {
+    func listMyFriendsPromiseParsed(_ data: Data) -> Promise<ListFriend> {
         return Promise { resolver in
             do {
                 let response = try decoder.decode(JSONModelListMyFriend.self, from: data).response

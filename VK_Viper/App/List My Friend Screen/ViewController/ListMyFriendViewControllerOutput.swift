@@ -10,4 +10,7 @@ protocol ListMyFriendViewControllerOutput: AnyObject {
     
     /// Получение списка друзей
     func getListFriends() -> Void
+    
+    /// Переход в профиль друга
+    func showProfileFriend(dataFriend: Friends) -> Void
 }

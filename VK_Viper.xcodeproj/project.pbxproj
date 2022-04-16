@@ -40,6 +40,13 @@
 		5966C682280AA95B0012423B /* ListMyFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C681280AA95B0012423B /* ListMyFriendView.swift */; };
 		5966C685280AAB120012423B /* ListMyFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C684280AAB120012423B /* ListMyFriendTableViewCell.swift */; };
 		5966C688280AF8280012423B /* FriendSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C687280AF8280012423B /* FriendSection.swift */; };
+		5966C68F280AFD6A0012423B /* ProfileFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C68E280AFD6A0012423B /* ProfileFriendView.swift */; };
+		5966C692280AFD8E0012423B /* ListMyFriendRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C691280AFD8E0012423B /* ListMyFriendRouter.swift */; };
+		5966C694280B02A50012423B /* ProfileFriendPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C693280B02A50012423B /* ProfileFriendPresentor.swift */; };
+		5966C697280B05B00012423B /* ProfileFriendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C696280B05B00012423B /* ProfileFriendService.swift */; };
+		5966C69A280B06890012423B /* ProfileFriendBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C699280B06890012423B /* ProfileFriendBuilder.swift */; };
+		5966C69C280B173C0012423B /* JSONModelProfileFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C69B280B173C0012423B /* JSONModelProfileFriend.swift */; };
+		5966C69F280B1A690012423B /* ProfileFriendInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C69E280B1A690012423B /* ProfileFriendInteractor.swift */; };
 		59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FC280850D5007A5A61 /* AppDelegate.swift */; };
 		59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */; };
 		59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 59D8F205280850D5007A5A61 /* VK_Viper.xcdatamodeld */; };
@@ -107,6 +114,13 @@
 		5966C681280AA95B0012423B /* ListMyFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendView.swift; sourceTree = "<group>"; };
 		5966C684280AAB120012423B /* ListMyFriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendTableViewCell.swift; sourceTree = "<group>"; };
 		5966C687280AF8280012423B /* FriendSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSection.swift; sourceTree = "<group>"; };
+		5966C68E280AFD6A0012423B /* ProfileFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendView.swift; sourceTree = "<group>"; };
+		5966C691280AFD8E0012423B /* ListMyFriendRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMyFriendRouter.swift; sourceTree = "<group>"; };
+		5966C693280B02A50012423B /* ProfileFriendPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendPresentor.swift; sourceTree = "<group>"; };
+		5966C696280B05B00012423B /* ProfileFriendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendService.swift; sourceTree = "<group>"; };
+		5966C699280B06890012423B /* ProfileFriendBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendBuilder.swift; sourceTree = "<group>"; };
+		5966C69B280B173C0012423B /* JSONModelProfileFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModelProfileFriend.swift; sourceTree = "<group>"; };
+		5966C69E280B1A690012423B /* ProfileFriendInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendInteractor.swift; sourceTree = "<group>"; };
 		59D8F1F9280850D5007A5A61 /* VK_Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_Viper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D8F1FC280850D5007A5A61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59D8F1FE280850D5007A5A61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -276,6 +290,7 @@
 		59621BF12809698F0043A8EA /* List My Friend Screen */ = {
 			isa = PBXGroup;
 			children = (
+				5966C690280AFD780012423B /* Router */,
 				59621BF3280969BC0043A8EA /* Builder */,
 				59621C04280987800043A8EA /* Use Case Layer */,
 				59621C012809872B0043A8EA /* Presentor */,
@@ -362,6 +377,67 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		5966C689280AFCE60012423B /* Profile Friend */ = {
+			isa = PBXGroup;
+			children = (
+				5966C69D280B1A500012423B /* Use Case Layer */,
+				5966C698280B066C0012423B /* Builder */,
+				5966C68B280AFD330012423B /* Presentor */,
+				5966C68A280AFD2F0012423B /* View */,
+			);
+			path = "Profile Friend";
+			sourceTree = "<group>";
+		};
+		5966C68A280AFD2F0012423B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5966C695280B030D0012423B /* Service Layer */,
+				5966C68E280AFD6A0012423B /* ProfileFriendView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5966C68B280AFD330012423B /* Presentor */ = {
+			isa = PBXGroup;
+			children = (
+				5966C693280B02A50012423B /* ProfileFriendPresentor.swift */,
+			);
+			path = Presentor;
+			sourceTree = "<group>";
+		};
+		5966C690280AFD780012423B /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				5966C691280AFD8E0012423B /* ListMyFriendRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		5966C695280B030D0012423B /* Service Layer */ = {
+			isa = PBXGroup;
+			children = (
+				5966C696280B05B00012423B /* ProfileFriendService.swift */,
+				5966C69B280B173C0012423B /* JSONModelProfileFriend.swift */,
+			);
+			path = "Service Layer";
+			sourceTree = "<group>";
+		};
+		5966C698280B066C0012423B /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				5966C699280B06890012423B /* ProfileFriendBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		5966C69D280B1A500012423B /* Use Case Layer */ = {
+			isa = PBXGroup;
+			children = (
+				5966C69E280B1A690012423B /* ProfileFriendInteractor.swift */,
+			);
+			path = "Use Case Layer";
+			sourceTree = "<group>";
+		};
 		59D8F1F0280850D5007A5A61 = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +489,7 @@
 		59D8F22F28085124007A5A61 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				5966C689280AFCE60012423B /* Profile Friend */,
 				59621BF12809698F0043A8EA /* List My Friend Screen */,
 				59621BEE280967110043A8EA /* General TabBar */,
 				59D8F248280869CE007A5A61 /* OAuthVK Screen */,
@@ -678,6 +755,7 @@
 				59621BFE28097F1D0043A8EA /* HashImageService.swift in Sources */,
 				59621BE12809516A0043A8EA /* URLConfigurator.swift in Sources */,
 				593926C428089E3500009005 /* Session.swift in Sources */,
+				5966C69A280B06890012423B /* ProfileFriendBuilder.swift in Sources */,
 				59D8F247280864AD007A5A61 /* WelcomeScreenViewOutput.swift in Sources */,
 				59621BFB28097D620043A8EA /* Extension+UITableViewCell.swift in Sources */,
 				59621BEA2809589C0043A8EA /* ServiceTokenApp.swift in Sources */,
@@ -685,6 +763,7 @@
 				59621BE6280955700043A8EA /* Errors.swift in Sources */,
 				59621C0A280988B90043A8EA /* ListMyFriendService.swift in Sources */,
 				59D8F1FD280850D5007A5A61 /* AppDelegate.swift in Sources */,
+				5966C69C280B173C0012423B /* JSONModelProfileFriend.swift in Sources */,
 				5966C685280AAB120012423B /* ListMyFriendTableViewCell.swift in Sources */,
 				59D8F242280860F0007A5A61 /* WelcomeScreenRouter.swift in Sources */,
 				593926B3280883E300009005 /* OAuthVKViewOutput.swift in Sources */,
@@ -697,6 +776,8 @@
 				59D8F23828085243007A5A61 /* WelcomeScreenViewController.swift in Sources */,
 				59621C002809847E0043A8EA /* Extension+UIImageView.swift in Sources */,
 				5966C688280AF8280012423B /* FriendSection.swift in Sources */,
+				5966C68F280AFD6A0012423B /* ProfileFriendView.swift in Sources */,
+				5966C69F280B1A690012423B /* ProfileFriendInteractor.swift in Sources */,
 				59D8F23F28085A83007A5A61 /* Extension+UIColor.swift in Sources */,
 				59621C06280987960043A8EA /* ListMyFriendInteractor.swift in Sources */,
 				593926AB28086A6800009005 /* OAuthVKBuilder.swift in Sources */,
@@ -704,15 +785,18 @@
 				59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */,
 				59621BE32809528D0043A8EA /* WelcomeScreenService.swift in Sources */,
 				59D8F23D280854A6007A5A61 /* WelcomeScreenView.swift in Sources */,
+				5966C692280AFD8E0012423B /* ListMyFriendRouter.swift in Sources */,
 				59621C032809873E0043A8EA /* ListMyFriendPresentor.swift in Sources */,
 				593926C228089D5800009005 /* ModelDataSession.swift in Sources */,
 				593926BC2808865400009005 /* OAuthVKService.swift in Sources */,
 				5966C682280AA95B0012423B /* ListMyFriendView.swift in Sources */,
 				59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */,
+				5966C694280B02A50012423B /* ProfileFriendPresentor.swift in Sources */,
 				59621BED28095E1C0043A8EA /* WelcomeScreenInteractor.swift in Sources */,
 				59621BE82809572D0043A8EA /* JSONModelTokenValid.swift in Sources */,
 				59D8F245280862F7007A5A61 /* WelcomeScreenPresentor.swift in Sources */,
 				59621BF728096A040043A8EA /* ListMyFriendViewController.swift in Sources */,
+				5966C697280B05B00012423B /* ProfileFriendService.swift in Sources */,
 				593926A828086A1D00009005 /* OAuthVKViewController.swift in Sources */,
 				59621C0C2809890D0043A8EA /* JSONModelListMyFriend.swift in Sources */,
 				59D8F23A28085293007A5A61 /* WelcomeScreenBuilder.swift in Sources */,
@@ -814,7 +898,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -868,7 +952,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

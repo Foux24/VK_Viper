@@ -90,6 +90,8 @@ extension ListMyFriendViewController: UITableViewDelegate {
     
     /// Выделение ячейка
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let dataFriend = listMyFriend[indexPath.section].data[indexPath.row]
+        output?.showProfileFriend(dataFriend: dataFriend)
         castomView.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
