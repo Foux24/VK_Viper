@@ -20,6 +20,12 @@ class ProfileFriendPresentor: ObservableObject {
     /// Друзья Друга
     @Published var userFriend: [Friends] = []
     
+    /// Массив УРЛ(фото) пользователя
+    @Published var arrayURLPhoto = [String]()
+    
+    /// Массив с последними 6 фото пользователя
+    @Published var arraySuffix6URLPhoto = [String]()
+    
     /// Формат даты
     private var dateFormatter: DateFormatter = {
         let df = DateFormatter()
@@ -67,6 +73,21 @@ class ProfileFriendPresentor: ObservableObject {
         }
     }
     
+    /// Получение списка фотографий пользователя
+    func getAllPhotoUser() -> Void {
+        let idFriend = String(self.dataFriend.id)
+        self.interactor.getAllUserPhoto(idFriend: idFriend) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let allPhoto):
+                self.arrayURLPhoto = self.sortImage(by: .m, from: allPhoto)
+                self.arrayURLPhoto = self.arrayURLPhoto.suffix(6)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     /// Метод для конвертации даты
     func formateDate() -> String {
         let time = self.userInfo?.lastSeen.time ?? 0
@@ -75,5 +96,18 @@ class ProfileFriendPresentor: ObservableObject {
         let dateString = self.dateFormatter.string(from: date as Date)
         dateFormate = dateString
         return dateFormate
+    }
+    
+    /// Метод сортировки фото по передаваемому типу
+    func sortImage(by sizeType: Size.EnumType, from array: [PhotoUser]) -> [String] {
+        var imageLinks: [String] = []
+        for model in array {
+            for size in model.sizes {
+                if size.type == sizeType {
+                    imageLinks.append(size.url)
+                }
+            }
+        }
+        return imageLinks
     }
 }

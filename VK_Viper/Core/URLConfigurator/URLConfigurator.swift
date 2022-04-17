@@ -27,6 +27,7 @@ enum TypeMethods: String {
     case tokenValidation = "/method/secure.checkToken"
     case listFriends = "/method/friends.get"
     case userInfo = "/method/users.get"
+    case getAllPhotoUser = "/method/photos.getAll"
 }
 
 /// Типы запросов

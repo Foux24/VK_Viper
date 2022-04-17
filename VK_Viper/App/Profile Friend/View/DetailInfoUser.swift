@@ -39,6 +39,7 @@ struct DetailInfoUser: View {
                         .foregroundColor(Color.gray)
                     
                 }
+                
                 if presentor.userInfo?.occupation != nil || presentor.userInfo?.occupation?.name == "" {
                     let typeOccupation = self.setupOccupation(by: presentor.userInfo?.occupation?.type ?? .university)
                     HStack {
@@ -48,16 +49,19 @@ struct DetailInfoUser: View {
                             .font(.system(size: 14, weight: .light, design: .default))
                             .foregroundColor(Color.gray)
                         Text(presentor.userInfo?.occupation?.name ?? "")
+                            .lineLimit(1)
                             .font(.system(size: 14, weight: .light, design: .default))
                             .foregroundColor(Color.gray)
+                            .padding(.trailing, 40.0)
                     }
                 }
+                
                 if presentor.userInfo?.followersCount != nil {
                     HStack {
                         Image(systemName: "dot.radiowaves.up.forward")
                             .foregroundColor(Color.gray)
                             .padding(.leading, 5.0)
-                        Text("\(presentor.userInfo?.followersCount ?? 0) Подписчик")
+                        Text("\(presentor.userInfo?.followersCount ?? 0) Подписчик(ов)")
                             .font(.system(size: 14, weight: .light, design: .default))
                             .foregroundColor(Color.gray)
                         Spacer()

@@ -20,6 +20,12 @@ protocol ProfileFriendInteractorInput: AnyObject {
     ///  - idFriend: Id друга
     ///  - complition: Блок обработки запроса, на выходе список друзей  или ошибка
     func getListFriend(idFriend: String, completion: @escaping (Result<[Friends], ErrorVK>) -> Void)
+    
+    /// Получение списка фотографий пользователя
+    /// - Parameters:
+    ///  - idFriend: Id пользователя
+    ///  - complition: Блок обработки запроса, на выходе список фото  или ошибка
+    func getAllUserPhoto(idFriend: String, completion: @escaping (Result<[PhotoUser], ErrorVK>) -> Void)
 }
 
 /// Интерактор для презентора  Profile Friend View
@@ -57,6 +63,18 @@ extension ProfileFriendInteractor: ProfileFriendInteractorInput {
             .then(service.listUserFriendPromiseParsed(_:))
             .done(on: DispatchQueue.main) { response in
                 completion(.success(response.items))
+            }.catch { error in
+                completion(.failure(error as! ErrorVK))
+            }
+    }
+    
+    /// Получение коллекции фотографий друга
+    func getAllUserPhoto(idFriend: String, completion: @escaping (Result<[PhotoUser], ErrorVK>) -> Void) {
+        service.UserPhotoPromisURL(idFriend: idFriend)
+            .then(on: DispatchQueue.global(), service.UserPhotoPromisData(_:))
+            .then(service.UserPhotoPromiseParsed(_:))
+            .done(on: DispatchQueue.main) { response in
+                completion(.success(response))
             }.catch { error in
                 completion(.failure(error as! ErrorVK))
             }
