@@ -13,11 +13,11 @@ final class ProfileFriendBuilder {
     
     /// Build
     /// - Parameter dataFriend: Общие данные друга
-    static func Build(dataFriend: Friends) -> UIViewController {
+    static func Build(idUser: Int) -> UIViewController {
         let urlConfigurator = URLConfigurator()
         let service = ProfileFriendService(urlConfigurator: urlConfigurator)
         let interactor = ProfileFriendInteractor(service: service)
-        let profileFriendPresentor = ProfileFriendPresentor(dataFriend: dataFriend, interactor: interactor)
+        let profileFriendPresentor = ProfileFriendPresentor(idUser: idUser, interactor: interactor)
         let profileFriendView = UIHostingController(rootView: ProfileFriendView(presentor: profileFriendPresentor))
         return profileFriendView
     }

@@ -8,10 +8,13 @@
 import SwiftUI
 import Kingfisher
 
+/// Коллекция фотографий друга
 struct PhotoUserViewCollectionCell: View {
     
+    /// Фото
     let photoFriend: PhotoFriendData
     
+    /// Флаг выбранной фотографии
     let isSelected: Bool
 
     var body: some View {
@@ -25,10 +28,16 @@ struct PhotoUserViewCollectionCell: View {
     }
 }
 
+/// Для расчета высота ячейки
 struct PhotoFriendRowHeightPreferenceKey: PreferenceKey {
     
+    /// Дефолтная высота
     static var defaultValue: CGFloat = 0
     
+    /// Передача новой высоты
+    /// - Parameters:
+    ///  - value: Значение
+    ///  - nextValue: Новое значение
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = max(value, nextValue())
     }

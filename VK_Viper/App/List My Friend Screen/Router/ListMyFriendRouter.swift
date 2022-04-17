@@ -27,6 +27,6 @@ extension ListMyFriendRouter: ListMyFriendRouterInput {
     
     /// Переход в профиль друга
     func showProfileFriend(dataFriend: Friends) -> Void {
-        self.listMyFriendViewController?.navigationController?.pushViewController(ProfileFriendBuilder.Build(dataFriend: dataFriend), animated: true)
+        self.listMyFriendViewController?.navigationController?.pushViewController(ProfileFriendBuilder.Build(idUser: dataFriend.id), animated: true)
     }
 }

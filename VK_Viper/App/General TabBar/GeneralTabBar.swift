@@ -26,8 +26,8 @@ final class GeneralTabBarController: UITabBarController {
         guard let imagemyGroup = UIImage(systemName: "person.3.fill") else { return }
         guard let imageNews = UIImage(systemName: "newspaper.fill") else { return }
         
-        let myFriend = createNavController(for: ListMyFriendBuilder.build(), title: "Мои друзья", image: imageMyFriend)
-        let myGroup = createNavController(for: ListMyFriendBuilder.build(), title: "Мои группы", image: imagemyGroup)
+        let myFriend = createNavController(for: ListMyFriendBuilder.build(), title: "Друзья", image: imageMyFriend)
+        let myGroup = createNavController(for: ListMyFriendBuilder.build(), title: "Группы", image: imagemyGroup)
         let myNews = createNavController(for: ListMyFriendBuilder.build(), title: "Новости", image: imageNews)
         
         viewControllers = [myFriend, myGroup, myNews]
