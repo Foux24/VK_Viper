@@ -19,7 +19,7 @@ struct ListFriend: Codable {
 }
 
 /// MyFriend
-struct Friends: Codable {
+struct Friends: Codable, Identifiable {
     var firstName: String
     var id: Int
     var lastName: String

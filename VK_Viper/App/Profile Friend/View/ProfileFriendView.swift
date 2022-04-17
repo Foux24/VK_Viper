@@ -16,8 +16,11 @@ struct ProfileFriendView: View {
     
     /// Body
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 0) {
             HeaderProfileFriend(presentor: presentor)
+            DetailInfoUser(presentor: presentor)
+            UserFriendsView(presentor: presentor)
+            Spacer()
         }
         .onAppear {
             presentor.getUserInfo()
@@ -41,8 +44,8 @@ struct HeaderProfileFriend: View {
     
     /// Body
     var body: some View {
+        GeometryReader { proxy in
         ZStack {
-            GeometryReader { proxy in
                 VStack {
                     HStack {
                         VStack {
@@ -154,6 +157,7 @@ struct HeaderProfileFriend: View {
                     .cornerRadius(8)
                 }
             }
+            .frame(width: proxy.size.width, height: proxy.size.height)
         }
     }
     /// Дефолтное действие кнопкам

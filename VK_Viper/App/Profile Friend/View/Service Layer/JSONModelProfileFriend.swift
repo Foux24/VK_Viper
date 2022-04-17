@@ -60,11 +60,11 @@ struct LastSeen: Codable {
 struct Occupation: Codable {
     let name: String
     let type: TypeOccupation
-}
-
-/// Тип занятости
-enum TypeOccupation: String, Codable {
-    case school = "school"
-    case university = "university"
-    case work = "work"
+    
+    /// Тип занятости
+    enum TypeOccupation: String, Codable {
+        case school = "school"
+        case university = "university"
+        case work = "work"
+    }
 }
