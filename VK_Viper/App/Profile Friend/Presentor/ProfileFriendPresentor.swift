@@ -8,23 +8,35 @@
 import SwiftUI
 import Combine
 
+/// Модель для ячейки с фото
+struct PhotoFriendData: Identifiable {
+    var id: UUID = UUID()
+    var friendPhoto: String
+}
+
+/// Модель для данных рода деятельности
+struct SetupOccupation {
+    var imageOccupation = ""
+    var textOccupation = ""
+}
+
 /// ViewModel для ProfileFriendView
 class ProfileFriendPresentor: ObservableObject {
     
     /// Общие данный друга
-    @Published var dataFriend: Friends
+    @Published private(set) var dataFriend: Friends
     
     /// Данные профиля друга
-    @Published var userInfo: UserInfo?
+    @Published private(set) var userInfo: UserInfo?
     
     /// Друзья Друга
-    @Published var userFriend: [Friends] = []
+    @Published private(set) var userFriend: [Friends] = []
     
     /// Массив УРЛ(фото) пользователя
-    @Published var arrayURLPhoto = [String]()
+    @Published private(set) var arrayURLPhoto: [PhotoFriendData] = []
     
     /// Массив с последними 6 фото пользователя
-    @Published var arraySuffix6URLPhoto = [String]()
+    @Published private(set) var arraySuffix6URLPhoto: [PhotoFriendData] = []
     
     /// Формат даты
     private var dateFormatter: DateFormatter = {
@@ -81,7 +93,7 @@ class ProfileFriendPresentor: ObservableObject {
             switch result {
             case .success(let allPhoto):
                 self.arrayURLPhoto = self.sortImage(by: .m, from: allPhoto)
-                self.arrayURLPhoto = self.arrayURLPhoto.suffix(6)
+                self.arraySuffix6URLPhoto = self.arrayURLPhoto.suffix(6)
             case .failure(let error):
                 print(error)
             }
@@ -99,12 +111,12 @@ class ProfileFriendPresentor: ObservableObject {
     }
     
     /// Метод сортировки фото по передаваемому типу
-    func sortImage(by sizeType: Size.EnumType, from array: [PhotoUser]) -> [String] {
-        var imageLinks: [String] = []
+    func sortImage(by sizeType: Size.EnumType, from array: [PhotoUser]) -> [PhotoFriendData] {
+        var imageLinks: [PhotoFriendData] = []
         for model in array {
             for size in model.sizes {
                 if size.type == sizeType {
-                    imageLinks.append(size.url)
+                    imageLinks.append(PhotoFriendData(friendPhoto: size.url))
                 }
             }
         }
