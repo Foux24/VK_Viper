@@ -49,6 +49,12 @@
 		5966C69F280B1A690012423B /* ProfileFriendInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C69E280B1A690012423B /* ProfileFriendInteractor.swift */; };
 		5966C6A4280B3D280012423B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5966C6A3280B3D280012423B /* Kingfisher */; };
 		5966C6A7280B5EC90012423B /* SetAvatarFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5966C6A6280B5EC90012423B /* SetAvatarFriend.swift */; };
+		5971A29B280D90C200630390 /* ListFriendUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5971A29A280D90C200630390 /* ListFriendUserView.swift */; };
+		5971A29E280D90DD00630390 /* ListFriendUserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5971A29D280D90DD00630390 /* ListFriendUserRow.swift */; };
+		5971A2A1280D914B00630390 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5971A2A0280D914B00630390 /* LazyView.swift */; };
+		5971A2A3280D93E400630390 /* ListFriendUserPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5971A2A2280D93E400630390 /* ListFriendUserPresentor.swift */; };
+		5971A2A6280D951500630390 /* ListFriendUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5971A2A5280D951500630390 /* ListFriendUserService.swift */; };
+		5971A2A9280D98A900630390 /* ListFriendUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5971A2A8280D98A900630390 /* ListFriendUserInteractor.swift */; };
 		59739698280BEB8C00ABFA8E /* UserFriendsViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59739697280BEB8C00ABFA8E /* UserFriendsViewCollectionCell.swift */; };
 		5973969B280BF23200ABFA8E /* ASCollectionView in Frameworks */ = {isa = PBXBuildFile; productRef = 5973969A280BF23200ABFA8E /* ASCollectionView */; };
 		597396A6280C19CF00ABFA8E /* JSONModelPhotoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597396A5280C19CF00ABFA8E /* JSONModelPhotoUser.swift */; };
@@ -128,6 +134,12 @@
 		5966C69B280B173C0012423B /* JSONModelProfileFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModelProfileFriend.swift; sourceTree = "<group>"; };
 		5966C69E280B1A690012423B /* ProfileFriendInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendInteractor.swift; sourceTree = "<group>"; };
 		5966C6A6280B5EC90012423B /* SetAvatarFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvatarFriend.swift; sourceTree = "<group>"; };
+		5971A29A280D90C200630390 /* ListFriendUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFriendUserView.swift; sourceTree = "<group>"; };
+		5971A29D280D90DD00630390 /* ListFriendUserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFriendUserRow.swift; sourceTree = "<group>"; };
+		5971A2A0280D914B00630390 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		5971A2A2280D93E400630390 /* ListFriendUserPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFriendUserPresentor.swift; sourceTree = "<group>"; };
+		5971A2A5280D951500630390 /* ListFriendUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFriendUserService.swift; sourceTree = "<group>"; };
+		5971A2A8280D98A900630390 /* ListFriendUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFriendUserInteractor.swift; sourceTree = "<group>"; };
 		59739697280BEB8C00ABFA8E /* UserFriendsViewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFriendsViewCollectionCell.swift; sourceTree = "<group>"; };
 		597396A5280C19CF00ABFA8E /* JSONModelPhotoUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModelPhotoUser.swift; sourceTree = "<group>"; };
 		597396AB280C28D300ABFA8E /* PhotoUserViewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUserViewCollectionCell.swift; sourceTree = "<group>"; };
@@ -341,7 +353,6 @@
 		59621C012809872B0043A8EA /* Presentor */ = {
 			isa = PBXGroup;
 			children = (
-				5966C686280AF8070012423B /* Models */,
 				59621C022809873E0043A8EA /* ListMyFriendPresentor.swift */,
 			);
 			path = Presentor;
@@ -460,6 +471,66 @@
 			path = ViewModifireSwiftUI;
 			sourceTree = "<group>";
 		};
+		5971A297280D908C00630390 /* ListFriendUser */ = {
+			isa = PBXGroup;
+			children = (
+				5971A2A7280D951800630390 /* Use Case Layer */,
+				5971A299280D90A100630390 /* Presentor */,
+				5971A298280D909900630390 /* View */,
+			);
+			path = ListFriendUser;
+			sourceTree = "<group>";
+		};
+		5971A298280D909900630390 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5971A2A4280D950100630390 /* Service Layer */,
+				5971A29C280D90CA00630390 /* Row */,
+				5971A29A280D90C200630390 /* ListFriendUserView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5971A299280D90A100630390 /* Presentor */ = {
+			isa = PBXGroup;
+			children = (
+				5971A2A2280D93E400630390 /* ListFriendUserPresentor.swift */,
+			);
+			path = Presentor;
+			sourceTree = "<group>";
+		};
+		5971A29C280D90CA00630390 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				5971A29D280D90DD00630390 /* ListFriendUserRow.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		5971A29F280D912900630390 /* LazyView */ = {
+			isa = PBXGroup;
+			children = (
+				5971A2A0280D914B00630390 /* LazyView.swift */,
+			);
+			path = LazyView;
+			sourceTree = "<group>";
+		};
+		5971A2A4280D950100630390 /* Service Layer */ = {
+			isa = PBXGroup;
+			children = (
+				5971A2A5280D951500630390 /* ListFriendUserService.swift */,
+			);
+			path = "Service Layer";
+			sourceTree = "<group>";
+		};
+		5971A2A7280D951800630390 /* Use Case Layer */ = {
+			isa = PBXGroup;
+			children = (
+				5971A2A8280D98A900630390 /* ListFriendUserInteractor.swift */,
+			);
+			path = "Use Case Layer";
+			sourceTree = "<group>";
+		};
 		59739696280BEB5900ABFA8E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +591,7 @@
 		59D8F22F28085124007A5A61 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				5971A297280D908C00630390 /* ListFriendUser */,
 				5966C689280AFCE60012423B /* Profile Friend */,
 				59621BF12809698F0043A8EA /* List My Friend Screen */,
 				59621BEE280967110043A8EA /* General TabBar */,
@@ -542,6 +614,8 @@
 		59D8F2312808519D007A5A61 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5966C686280AF8070012423B /* Models */,
+				5971A29F280D912900630390 /* LazyView */,
 				5966C6A5280B5E930012423B /* ViewModifireSwiftUI */,
 				59621BFC28097EEA0043A8EA /* HashImageService */,
 				59621BE4280955550043A8EA /* Errors */,
@@ -788,6 +862,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5971A29B280D90C200630390 /* ListFriendUserView.swift in Sources */,
 				59621BFE28097F1D0043A8EA /* HashImageService.swift in Sources */,
 				59621BE12809516A0043A8EA /* URLConfigurator.swift in Sources */,
 				597396AC280C28D300ABFA8E /* PhotoUserViewCollectionCell.swift in Sources */,
@@ -805,8 +880,10 @@
 				5966C685280AAB120012423B /* ListMyFriendTableViewCell.swift in Sources */,
 				59D8F242280860F0007A5A61 /* WelcomeScreenRouter.swift in Sources */,
 				593926B3280883E300009005 /* OAuthVKViewOutput.swift in Sources */,
+				5971A2A9280D98A900630390 /* ListFriendUserInteractor.swift in Sources */,
 				593926B9280885EE00009005 /* OAuthVKInteractor.swift in Sources */,
 				59621BF928097D540043A8EA /* Extension+UICollectionViewCell.swift in Sources */,
+				5971A2A1280D914B00630390 /* LazyView.swift in Sources */,
 				59621BF5280969D10043A8EA /* ListMyFriendBuilder.swift in Sources */,
 				593926C628089E5900009005 /* SessionCaretaker.swift in Sources */,
 				593926AE28086CF800009005 /* OAuthVKView.swift in Sources */,
@@ -818,9 +895,11 @@
 				5966C69F280B1A690012423B /* ProfileFriendInteractor.swift in Sources */,
 				59D8F23F28085A83007A5A61 /* Extension+UIColor.swift in Sources */,
 				59621C06280987960043A8EA /* ListMyFriendInteractor.swift in Sources */,
+				5971A2A6280D951500630390 /* ListFriendUserService.swift in Sources */,
 				593926AB28086A6800009005 /* OAuthVKBuilder.swift in Sources */,
 				59621C0E280990420043A8EA /* ListMyFriendViewControllerOutput.swift in Sources */,
 				59D8F1FF280850D5007A5A61 /* SceneDelegate.swift in Sources */,
+				5971A29E280D90DD00630390 /* ListFriendUserRow.swift in Sources */,
 				59621BE32809528D0043A8EA /* WelcomeScreenService.swift in Sources */,
 				59D8F23D280854A6007A5A61 /* WelcomeScreenView.swift in Sources */,
 				5966C692280AFD8E0012423B /* ListMyFriendRouter.swift in Sources */,
@@ -830,6 +909,7 @@
 				597396A6280C19CF00ABFA8E /* JSONModelPhotoUser.swift in Sources */,
 				5966C682280AA95B0012423B /* ListMyFriendView.swift in Sources */,
 				59D8F207280850D5007A5A61 /* VK_Viper.xcdatamodeld in Sources */,
+				5971A2A3280D93E400630390 /* ListFriendUserPresentor.swift in Sources */,
 				5966C694280B02A50012423B /* ProfileFriendPresentor.swift in Sources */,
 				59621BED28095E1C0043A8EA /* WelcomeScreenInteractor.swift in Sources */,
 				59621BE82809572D0043A8EA /* JSONModelTokenValid.swift in Sources */,

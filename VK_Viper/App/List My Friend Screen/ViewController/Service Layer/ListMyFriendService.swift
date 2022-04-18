@@ -46,7 +46,7 @@ extension ListMyFriendService: ListMyFriendServiceInput {
     func listMyFriendsPromisURL(idUser: String) -> Promise<URL> {
         let token = Session.instance.dataSession.token ?? ""
         let params: [String: String] = ["user_id" : idUser,
-                                        "fields" : "photo_200_orig,status,domain,last_seen"]
+                                        "fields" : "photo_200_orig,status"]
         let urlConfig = urlConfigurator.configureUrl(token: token,
                                                      typeMethod: .listFriends,
                                                      typeRequest: .get,
