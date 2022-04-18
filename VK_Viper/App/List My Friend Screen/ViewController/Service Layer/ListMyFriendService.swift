@@ -12,7 +12,7 @@ import PromiseKit
 protocol ListMyFriendServiceInput: AnyObject {
     
     /// Составляем URL
-    func listMyFriendsPromisURL() -> Promise<URL>
+    func listMyFriendsPromisURL(idUser: String) -> Promise<URL>
     
     /// Делаем запрос
     /// - Parameter url: URL для запроса
@@ -43,9 +43,10 @@ final class ListMyFriendService {
 extension ListMyFriendService: ListMyFriendServiceInput {
     
     /// Составляем URL
-    func listMyFriendsPromisURL() -> Promise<URL> {
+    func listMyFriendsPromisURL(idUser: String) -> Promise<URL> {
         let token = Session.instance.dataSession.token ?? ""
-        let params: [String: String] = ["fields" : "photo_200_orig,status,domain,last_seen"]
+        let params: [String: String] = ["user_id" : idUser,
+                                        "fields" : "photo_200_orig,status,domain,last_seen"]
         let urlConfig = urlConfigurator.configureUrl(token: token,
                                                      typeMethod: .listFriends,
                                                      typeRequest: .get,

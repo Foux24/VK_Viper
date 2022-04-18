@@ -30,7 +30,8 @@ extension ListMyFriendPresentor: ListMyFriendViewControllerOutput {
     
     /// Получение списка друзей
     func getListFriends() {
-        interactor.getListMyFriend { [weak self] result in
+        let idUser = String(Session.instance.dataSession.userId ?? 0)
+        interactor.getListMyFriend(idUser: idUser) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let myFriend):
