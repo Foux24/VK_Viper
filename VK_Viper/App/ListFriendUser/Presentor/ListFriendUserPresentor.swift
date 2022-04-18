@@ -1,55 +1,61 @@
 //
-//  ListMyFriendPresentor.swift
+//  ListFriendUserPresentor.swift
 //  VK_Viper
 //
-//  Created by Vitalii Sukhoroslov on 15.04.2022.
+//  Created by Vitalii Sukhoroslov on 18.04.2022.
 //
 
-import UIKit
+import SwiftUI
+import Combine
 
-/// Presentor для List My Friend ViewController
-final class ListMyFriendPresentor {
+/// Presentor для ListFriendView
+final class ListFriendUserPresentor: ObservableObject {
     
-    /// Ineractor
-    private let interactor: ListMyFriendInteractorInput
+    /// id пользователя
+    var idUser: Int
     
-    /// Router
-    private let router: ListMyFriendRouterInput
+    /// Список друзей филтрованных на словарь
+    @Published private(set) var arrayFriend: [FriendSection] = []
     
-    /// List My Friend ViewController
-    weak var listMyFriendViewController: ListMyFriendViewControllerInput?
-    
-    init(interactor: ListMyFriendInteractorInput, router: ListMyFriendRouterInput) {
+    /// Interactor
+    private let interactor: ListFriendUserInteractorInput
+
+    /// Инициализтор
+    /// - Parameters:
+    ///  - idUser: idUser
+    ///  - interactor: Interactor
+    init(idUser: Int, interactor: ListFriendUserInteractorInput) {
+        self.idUser = idUser
         self.interactor = interactor
-        self.router = router
     }
-}
-
-/// Extension ListMyFriendPresentor on the ListMyFriendViewControllerOutput
-extension ListMyFriendPresentor: ListMyFriendViewControllerOutput {
     
-    /// Получение списка друзей
-    func getListFriends() {
-        let idUser = String(Session.instance.dataSession.userId ?? 0)
-        interactor.getListMyFriend(idUser: idUser) { [weak self] result in
+    /// Получение списка друзей и их соритровка по FriendSection
+    func getListFriendUser() -> Void {
+        interactor.getListFriendUser(idUser: String(idUser)) { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let myFriend):
-                self.listMyFriendViewController?.listMyFriend = self.formFriendArray(from: myFriend)
+            case .success(let friends):
+                self.arrayFriend = self.formFriendArray(from: friends)
             case .failure(let error):
-                self.listMyFriendViewController?.showAlert(title: "Error code\(error.errorCode)", message: error.errorMsg)
+                print(error)
             }
         }
     }
     
-    /// Переход в профиль друга
-    func showProfileFriend(dataFriend: Friends) -> Void {
-        router.showProfileFriend(dataFriend: dataFriend)
+    /// Переход на профиль пользователя
+    /// - Parameter idUser: ID пользователя
+    func showFriendProfileView(idUser: Int) -> some View {
+        let urlConfigurator = URLConfigurator()
+        let service = ProfileFriendService(urlConfigurator: urlConfigurator)
+        let interactor = ProfileFriendInteractor(service: service)
+        let profileFriendPresentor = ProfileFriendPresentor(idUser: idUser, interactor: interactor)
+        let profileView = ProfileFriendView(presentor: profileFriendPresentor)
+        return profileView
     }
 }
 
 /// Private
-private extension ListMyFriendPresentor {
+private extension ListFriendUserPresentor {
     
     /// Сортировка в Словарь
     /// - Parameter array: Массив друзей полученый с сервера

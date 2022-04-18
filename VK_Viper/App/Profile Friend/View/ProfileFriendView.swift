@@ -202,11 +202,18 @@ struct ProfileFriendView: View {
                                 .font(.system(size: 14, weight: .light, design: .default))
                                 .foregroundColor(Color.gray)
                             Spacer()
+
                             Image(systemName: "chevron.forward")
                                 .foregroundColor(Color.gray)
                                 .padding(.leading, 5.0)
                         }
+                        .onTapGesture {
+                            self.presentor.stateShowListFriendUser = true
+                        }
                         .padding([.leading, .trailing])
+                        .sheet(isPresented: $presentor.stateShowListFriendUser, content: {
+                            self.presentor.showListFriendUserView(idUser: presentor.idUser)
+                        })
                         /// Коллекция (список друзей)
                         ASCollectionView(data: presentor.userFriend) { friend, _ in
                             NavigationLink(destination: self.presentor.showFriendProfileView(idUser: friend.id)) {
@@ -286,6 +293,7 @@ struct ProfileFriendView: View {
             presentor.getUserInfo()
             presentor.getListUserFriends()
             presentor.getAllPhotoUser()
+            presentor.changeStateShowListFriendUser()
         }
         .navigationTitle(presentor.userInfo.first?.domain ?? "")
     }

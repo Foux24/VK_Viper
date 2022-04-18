@@ -8,13 +8,16 @@
 import UIKit
 
 /// Структура для сортировки друзей по ключу
-struct FriendSection: Comparable {
+struct FriendSection: Comparable, Identifiable {
     
     /// Ключ
     var key: Character
     
     /// Значение
     var data: [Friends]
+    
+    /// id
+    let id = UUID()
     
     /// Сартировка ключей словаря  <
     static func < (lhs: FriendSection, rhs: FriendSection) -> Bool {

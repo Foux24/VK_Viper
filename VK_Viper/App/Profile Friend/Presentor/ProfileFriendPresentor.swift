@@ -21,7 +21,7 @@ struct SetupOccupation {
 }
 
 /// presentor для ProfileFriendView
-class ProfileFriendPresentor: ObservableObject {
+final class ProfileFriendPresentor: ObservableObject {
     
     /// id пользователя
     var idUser: Int
@@ -53,8 +53,11 @@ class ProfileFriendPresentor: ObservableObject {
     /// NameSpace
     @Namespace var namespace
     
-    /// Состояние статуса Нажатия на ячейку
+    /// Флаг состояния Нажатия на ячейку
     @Published var stateSelectPhoto: Bool = false
+    
+    /// Флаг состояния для перехода на список друзей пользователя
+    @Published var stateShowListFriendUser: Bool = false
     
     /// Количество столбцов в коллекции фотографий
     let columns: [GridItem] = [
@@ -157,6 +160,11 @@ class ProfileFriendPresentor: ObservableObject {
         self.stateSelectPhoto.toggle()
     }
     
+    /// Смена состояния stateShowListFriendUser после перехода на профиль
+    func changeStateShowListFriendUser() {
+        self.stateShowListFriendUser = false
+    }
+    
     /// Метод конфигурации рода деятельности
     /// - Parameter typeOccupartion: Тип рода деятельности
     func setupOccupation(by typeOccupartion: Occupation.TypeOccupation) -> SetupOccupation {
@@ -183,6 +191,16 @@ class ProfileFriendPresentor: ObservableObject {
         let profileFriendPresentor = ProfileFriendPresentor(idUser: idUser, interactor: interactor)
         let profileView = ProfileFriendView(presentor: profileFriendPresentor)
         return profileView
+    }
+    
+    /// переход на список друзей пользователя
+    func showListFriendUserView(idUser: Int) -> some View {
+        let urlConfigurator = URLConfigurator()
+        let service = ListFriendUserService(urlConfigurator: urlConfigurator)
+        let interactor = ListFriendUserInteractor(service: service)
+        let listFriendUserPresentor = ListFriendUserPresentor(idUser: idUser, interactor: interactor)
+        let listFriendUserView = ListFriendUserView(presentor: listFriendUserPresentor)
+        return listFriendUserView
     }
 }
 
