@@ -254,6 +254,10 @@ struct ProfileFriendView: View {
                                     .foregroundColor(Color.gray)
                                     .padding(.leading, 5.0)
                             }
+                            .onTapGesture {
+                                presentor.stateShowAllPhotoUserUser.toggle()
+                            }
+                            NavigationLink(destination: AllPhotoUserVIew(arrayURLPhoto: presentor.arrayURLPhoto), isActive: $presentor.stateShowAllPhotoUserUser) { EmptyView() }
                             
                             /// Коллекция из 6 последних фотографий
                             LazyVGrid(columns: presentor.columns, alignment: .center, spacing: 8) {
@@ -264,18 +268,14 @@ struct ProfileFriendView: View {
                                     )
                                     .frame(height: presentor.rowHeight)
                                     .onTapGesture {
-                                        withAnimation {
-                                            self.presentor.changeStateSelectCellUserPhoto()
-                                            self.presentor.selectedRow = index
-                                        }
+                                        self.presentor.changeStateSelectCellUserPhoto()
+                                        self.presentor.selectedRow = index
                                     }
-                                    .matchedGeometryEffect(id: index, in: self.presentor.namespace)
                                 }
                             }
                             .onPreferenceChange(PhotoFriendRowHeightPreferenceKey.self) { height in
                                 self.presentor.rowHeight = height
                             }
-                            
                         }
                         .padding([.leading, .trailing])
                         
@@ -297,6 +297,4 @@ struct ProfileFriendView: View {
         }
         .navigationTitle(presentor.userInfo.first?.domain ?? "")
     }
-    
-
 }

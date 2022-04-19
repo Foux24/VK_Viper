@@ -50,14 +50,14 @@ final class ProfileFriendPresentor: ObservableObject {
     /// Высота Ячейки
     @Published var rowHeight: CGFloat? = nil
     
-    /// NameSpace
-    @Namespace var namespace
-    
     /// Флаг состояния Нажатия на ячейку
     @Published var stateSelectPhoto: Bool = false
     
     /// Флаг состояния для перехода на список друзей пользователя
     @Published var stateShowListFriendUser: Bool = false
+    
+    /// Флаг состояния для перехода на список фотографий пользователя
+    @Published var stateShowAllPhotoUserUser: Bool = false
     
     /// Количество столбцов в коллекции фотографий
     let columns: [GridItem] = [
@@ -127,7 +127,7 @@ final class ProfileFriendPresentor: ObservableObject {
             case .success(let allPhoto):
                 self.arrayURLPhoto.removeAll()
                 self.arraySuffix6URLPhoto.removeAll()
-                self.arrayURLPhoto = self.sortImage(by: .m, from: allPhoto)
+                self.arrayURLPhoto = self.sortImage(by: .p, from: allPhoto)
                 self.arraySuffix6URLPhoto = self.arrayURLPhoto.suffix(6)
             case .failure(let error):
                 print(error)

@@ -28,6 +28,15 @@
       }
     },
     {
+      "identity" : "magazinelayout",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/MagazineLayout.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "9986a402e3d585eed15236363d3b56bdd4904271"
+      }
+    },
+    {
       "identity" : "promisekit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mxcl/PromiseKit.git",
